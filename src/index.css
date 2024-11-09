@@ -1,0 +1,43 @@
+@import url('./reset.css');
+
+:root {
+  font-family: Inter;
+  line-height: 1.5;
+  font-weight: 500;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+}
+
+.img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  cursor: pointer;
+  color: black;
+  text-decoration: none;
+}
+
+a:hover{
+  color: #7a272f;
+}
+
+.link {
+  color: black;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: #7a272f;
+}
+
+.btn {
+  cursor: pointer;
+  background-color: black;
+}
