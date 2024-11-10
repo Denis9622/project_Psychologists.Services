@@ -1,6 +1,5 @@
 import { useNavigate, NavLink } from 'react-router-dom';
 import styles from './HomePage.module.css';
-import logo from '../../assets/images/TravelTrucks.svg';
 
 function HomePage() {
   const navigate = useNavigate();
@@ -8,17 +7,13 @@ function HomePage() {
   return (
     <div>
       <header className={styles.header}>
-        <div
-          onClick={() => navigate('/')}
-          className={styles.logo}
-          style={{ cursor: 'pointer' }}
-        >
+        <NavLink to="/" className={styles.logo}>
           <img
-            src={logo}
+            src="/images/TravelTrucks.svg" // Путь к логотипу внутри папки public
             alt="TravelTrucks Logo"
             className={styles.logoImage}
           />
-        </div>
+        </NavLink>
 
         <nav className={styles.nav}>
           <ul className={styles.ulclass}>

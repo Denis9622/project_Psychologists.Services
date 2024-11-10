@@ -1,7 +1,5 @@
-// components/Header.jsx
 import { NavLink, useLocation } from 'react-router-dom';
 import styles from './Header.module.css';
-import logo from '../../assets/images/TravelTrucks.svg'; // Шлях до вашого логотипу
 
 function Header() {
   const location = useLocation();
@@ -9,7 +7,11 @@ function Header() {
   return (
     <header className={styles.header}>
       <a href="/" className={styles.logo}>
-        <img src={logo} alt="TravelTrucks Logo" className={styles.logoImage} />
+        <img
+          src="/images/TravelTrucks.svg" // Абсолютный путь к логотипу
+          alt="TravelTrucks Logo"
+          className={styles.logoImage}
+        />
       </a>
       <nav className={styles.nav}>
         <ul className={styles.ulclass}>

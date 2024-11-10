@@ -1,14 +1,5 @@
 import { useState } from 'react';
 import styles from './Filters.module.css';
-import TvIcon from '../../assets/images/tv.svg';
-import BathroomIcon from '../../assets/images/bathroom.svg';
-import VanIcon from '../../assets/images/van.svg';
-import IntegratedIcon from '../../assets/images/integrated.svg';
-import AlcoveIcon from '../../assets/images/alcove.svg';
-import MapIcon from '../../assets/images/Map.svg';
-import AcIcon from '../../assets/images/AC.svg';
-import AutomaticIcon from '../../assets/images/Automatic.svg';
-import KitchenIcon from '../../assets/images/Kitchen.svg';
 
 function Filters({ onApplyFilters }) {
   const [location, setLocation] = useState('');
@@ -48,29 +39,43 @@ function Filters({ onApplyFilters }) {
   };
 
   const featureIcons = {
-    ac: <img src={AcIcon} alt="AC" className={styles.slotIcon} />,
+    ac: <img src="/images/AC.svg" alt="AC" className={styles.slotIcon} />,
     automatic: (
-      <img src={AutomaticIcon} alt="Automatic" className={styles.slotIcon} />
+      <img
+        src="/images/Automatic.svg"
+        alt="Automatic"
+        className={styles.slotIcon}
+      />
     ),
     kitchen: (
-      <img src={KitchenIcon} alt="Kitchen" className={styles.slotIcon} />
+      <img
+        src="/images/Kitchen.svg"
+        alt="Kitchen"
+        className={styles.slotIcon}
+      />
     ),
-    tv: <img src={TvIcon} alt="TV" className={styles.slotIcon} />,
+    tv: <img src="/images/tv.svg" alt="TV" className={styles.slotIcon} />,
     bathroom: (
-      <img src={BathroomIcon} alt="Bathroom" className={styles.slotIcon} />
+      <img
+        src="/images/bathroom.svg"
+        alt="Bathroom"
+        className={styles.slotIcon}
+      />
     ),
   };
 
   const vehicleTypeIcons = {
-    van: <img src={VanIcon} alt="Van" className={styles.slotIcon} />,
+    van: <img src="/images/van.svg" alt="Van" className={styles.slotIcon} />,
     integrated: (
       <img
-        src={IntegratedIcon}
+        src="/images/integrated.svg"
         alt="Fully Integrated"
         className={styles.slotIcon}
       />
     ),
-    alcove: <img src={AlcoveIcon} alt="Alcove" className={styles.slotIcon} />,
+    alcove: (
+      <img src="/images/alcove.svg" alt="Alcove" className={styles.slotIcon} />
+    ),
   };
 
   return (
@@ -78,7 +83,7 @@ function Filters({ onApplyFilters }) {
       <div className={styles.filterSection}>
         <label className={styles.subtitleone}>Location</label>
         <div className={styles.inputContainer}>
-          <img src={MapIcon} alt="Map icon" className={styles.icon} />
+          <img src="/images/Map.svg" alt="Map icon" className={styles.icon} />
           <input
             type="text"
             value={location}

@@ -1,12 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import styles from './Card.module.css';
-import Rating from '../../assets/images/Rating.svg';
-import HeartIcon from '../../assets/images/Heart.svg';
-import MapIcon from '../../assets/images/Map.svg';
-import AcIcon from '../../assets/images/AC.svg';
-import AutomaticIcon from '../../assets/images/Automatic.svg';
-import KitchenIcon from '../../assets/images/Kitchen.svg';
-import PetrolIcon from '../../assets/images/petrol.svg';
 
 const Card = ({ camper }) => {
   const navigate = useNavigate();
@@ -15,7 +8,7 @@ const Card = ({ camper }) => {
   const imageUrl =
     gallery && gallery.length > 0
       ? gallery[0].original
-      : 'default-image-url.jpg';
+      : '/images/default-image-url.jpg'; // Путь к изображению по умолчанию из папки public
 
   return (
     <div className={styles.card}>
@@ -29,7 +22,7 @@ const Card = ({ camper }) => {
           <div className={styles.priceContainer}>
             <p className={styles.price}>{price.toFixed(2)} EUR</p>
             <img
-              src={HeartIcon}
+              src="/images/Heart.svg" // Путь к изображению из папки public
               alt="Heart icon"
               className={styles.heartIcon}
             />
@@ -37,9 +30,17 @@ const Card = ({ camper }) => {
         </div>
 
         <div className={styles.ratingContainer}>
-          <img src={Rating} alt="Rating stars" className={styles.ratingIcon} />
+          <img
+            src="/images/Rating.svg" // Путь к изображению из папки public
+            alt="Rating stars"
+            className={styles.ratingIcon}
+          />
           <span className={styles.rating}>{rating} (2 Reviews)</span>
-          <img src={MapIcon} alt="Map icon" className={styles.mapIcon} />
+          <img
+            src="/images/Map.svg" // Путь к изображению из папки public
+            alt="Map icon"
+            className={styles.mapIcon}
+          />
           <span className={styles.city}>{location}</span>
         </div>
 
@@ -48,26 +49,34 @@ const Card = ({ camper }) => {
         <div className={styles.filterSlots}>
           <div className={styles.filterSlot}>
             <img
-              src={AutomaticIcon}
+              src="/images/Automatic.svg" // Путь к изображению из папки public
               alt="Automatic"
               className={styles.filterIcon}
             />
             <span className={styles.filterLabel}>Automatic</span>
           </div>
           <div className={styles.filterSlot}>
-            <img src={PetrolIcon} alt="Petrol" className={styles.filterIcon} />
+            <img
+              src="/images/Petrol.svg" // Путь к изображению из папки public
+              alt="Petrol"
+              className={styles.filterIcon}
+            />
             <span className={styles.filterLabel}>Petrol</span>
           </div>
           <div className={styles.filterSlot}>
             <img
-              src={KitchenIcon}
+              src="/images/Kitchen.svg" // Путь к изображению из папки public
               alt="Kitchen"
               className={styles.filterIcon}
             />
             <span className={styles.filterLabel}>Kitchen</span>
           </div>
           <div className={styles.filterSlot}>
-            <img src={AcIcon} alt="AC" className={styles.filterIcon} />
+            <img
+              src="/images/AC.svg" // Путь к изображению из папки public
+              alt="AC"
+              className={styles.filterIcon}
+            />
             <span className={styles.filterLabel}>AC</span>
           </div>
         </div>

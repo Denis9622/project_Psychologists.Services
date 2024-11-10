@@ -5,7 +5,6 @@ import styles from './CamperDetailPage.module.css';
 import { fetchCamperDetails } from '../../redux/vehiclesSlice';
 import Loader from '../../components/Loader/Loader';
 import Header from '../../components/Header/Header';
-import Rating from '../../assets/images/Rating.svg';
 
 function CamperDetailPage() {
   const { id } = useParams();
@@ -80,7 +79,7 @@ function CamperDetailPage() {
           <div className={styles.ratingContainer}>
             <p className={styles.rating}>
               <img
-                src={Rating}
+                src="/images/Rating.svg" // Обновленный путь к изображению
                 alt="Rating stars"
                 className={styles.ratingIcon}
               />
@@ -96,16 +95,14 @@ function CamperDetailPage() {
 
           <div className={styles.images}>
             {camper.gallery && camper.gallery.length > 0 ? (
-              camper.gallery
-                .slice(0, 4)
-                .map((image, index) => (
-                  <img
-                    key={index}
-                    src={image.original}
-                    alt={`Camper Image ${index + 1}`}
-                    className={styles.image}
-                  />
-                ))
+              camper.gallery.slice(0, 4).map((image, index) => (
+                <img
+                  key={index}
+                  src={image.original} // Путь к изображениям также должен быть с учетом папки public
+                  alt={`Camper Image ${index + 1}`}
+                  className={styles.image}
+                />
+              ))
             ) : (
               <p>No images available</p>
             )}
