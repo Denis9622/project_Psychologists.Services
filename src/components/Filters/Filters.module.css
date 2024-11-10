@@ -1,0 +1,143 @@
+.filtersContainer {
+  width: 360px;
+  padding: 20px;
+  margin-right: 64px;
+  border-radius: 8px;
+}
+
+.subtitle {
+  font-weight: 600;
+  font-size: 20px;
+  color: #101828;
+  line-height: 1.2;
+}
+
+.subtitleone {
+  font-weight: 400;
+  font-size: 16px;
+  color: #6c717b;
+  margin-bottom: 12px;
+}
+
+.subtitleh2 {
+  font-weight: 500;
+  font-size: 18px;
+  color: #475467;
+  margin-bottom: 20px;
+}
+
+.inputContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.icon {
+  position: absolute;
+  left: 10px;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.input {
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 12px 12px 40px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-weight: 400;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.input::placeholder {
+  color: #101828;
+}
+
+.filterSection {
+  margin-bottom: 40px;
+}
+
+.slotContainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 360px;
+  gap: 12px;
+  margin-top: 48px;
+}
+
+.slot {
+  width: 112px;
+  height: 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(218, 221, 225, 1);
+  border-radius: 10px;
+  background-color: #ffffff;
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.slot input[type='checkbox'] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.slotIcon {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 8px;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.slot:hover {
+  border-color: #E44848;
+}
+
+/* Новый стиль для активного слота */
+.activeSlot {
+  border-color: #E44848;
+  background-color: rgba(228, 72, 72, 0.1);
+}
+
+.activeSlot .slotIcon {
+  opacity: 1;
+}
+
+.activeSlot .slotLabel {
+  color: #E44848;
+}
+
+.slotLabel {
+  font-size: 16px;
+  font-weight: 500;
+  color: #101828;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.applyButton {
+  width: 166px;
+  padding: 12px;
+  background-color: #E44848;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 200px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.applyButton:hover {
+  background-color: #4d0707;
+}

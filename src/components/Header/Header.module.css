@@ -1,0 +1,58 @@
+/* Header.module.css */
+
+.header {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logoImage {
+  width: 120px;
+  height: auto;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 24px 0;
+}
+
+.ulclass {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.link_li {
+  margin-right: 20px;
+}
+
+.navLink {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navLink:hover {
+  color: #3498db;
+}
+
+.active {
+  color: red; /* Червоний колір для активного пункту навігації */
+}

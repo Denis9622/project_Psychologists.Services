@@ -1,6 +1,6 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, NavLink } from 'react-router-dom';
 import styles from './HomePage.module.css';
-import logo from '/public/images/TravelTrucks.svg'; // Путь к вашему SVG логотипу
+import logo from '/public/images/TravelTrucks.svg';
 
 function HomePage() {
   const navigate = useNavigate();
@@ -8,28 +8,45 @@ function HomePage() {
   return (
     <div>
       <header className={styles.header}>
-        <a href="/" className={styles.logo}>
+        <div
+          onClick={() => navigate('/')}
+          className={styles.logo}
+          style={{ cursor: 'pointer' }}
+        >
           <img
             src={logo}
             alt="TravelTrucks Logo"
             className={styles.logoImage}
           />
-        </a>
+        </div>
+
         <nav className={styles.nav}>
           <ul className={styles.ulclass}>
             <li className={styles.link_li}>
-              <a href="/" className={styles.navLink}>
+              <NavLink
+                exact
+                to="/"
+                className={({ isActive }) =>
+                  `${styles.navLink} ${isActive ? styles.active : ''}`
+                }
+              >
                 Home
-              </a>
+              </NavLink>
             </li>
             <li className={styles.link_li}>
-              <a href="/catalog" className={styles.navLink}>
+              <NavLink
+                to="/catalog"
+                className={({ isActive }) =>
+                  `${styles.navLink} ${isActive ? styles.active : ''}`
+                }
+              >
                 Catalog
-              </a>
+              </NavLink>
             </li>
           </ul>
         </nav>
       </header>
+
       <div className={styles.hero}>
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>Campers of your dreams</h1>

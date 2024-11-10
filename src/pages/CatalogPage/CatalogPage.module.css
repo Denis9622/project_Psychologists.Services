@@ -1,22 +1,66 @@
-/* CatalogPage.module.css */
-
-.container {
+.catalogContainer {
+  display: flex;
   padding: 20px;
 }
 
+.catalogList {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+
 .title {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  font-size: 36px;
+  font-weight: 600;
+  color: #101828;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .cardList {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  justify-content: center;
 }
 
-.button {
+.loadMoreButton {
   margin-top: 20px;
   padding: 10px 20px;
+  background-color: #e44848;
+  color: white;
+  border: none;
+  border-radius: 200px;
   cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  align-self: center;
+}
+
+.loadMoreButton:hover {
+  background-color: #d84343;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .catalogContainer {
+    flex-direction: column;
+    padding: 10px;
+    padding-top: 80px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .cardList {
+    gap: 12px;
+  }
+
+  .loadMoreButton {
+    padding: 12px 32px;
+    font-size: 14px;
+  }
 }
