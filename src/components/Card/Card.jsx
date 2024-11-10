@@ -3,9 +3,9 @@ import styles from './Card.module.css';
 import Rating from '/public/images/Rating.svg';
 import HeartIcon from '/public/images/Heart.svg';
 import MapIcon from '/public/images/Map.svg';
-import AcIcon from '/public/images/ac.svg';
-import AutomaticIcon from '/public/images/automatic.svg';
-import KitchenIcon from '/public/images/kitchen.svg';
+import AcIcon from '/public/images/AC.svg';
+import AutomaticIcon from '/public/images/Automatic.svg';
+import KitchenIcon from '/public/images/Kitchen.svg';
 import PetrolIcon from '/public/images/petrol.svg';
 
 const Card = ({ camper }) => {
