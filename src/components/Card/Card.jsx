@@ -6,7 +6,7 @@ import MapIcon from '../../assets/images/Map.svg';
 import AcIcon from '../../assets/images/AC.svg';
 import AutomaticIcon from '../../assets/images/Automatic.svg';
 import KitchenIcon from '../../assets/images/Kitchen.svg';
-import PetrolIcon from '../../assets/images/Petrol.svg';
+import PetrolIcon from '../../assets/images/petrol.svg';
 
 const Card = ({ camper }) => {
   const navigate = useNavigate();
