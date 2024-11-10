@@ -1,6 +1,6 @@
 import { useNavigate, NavLink } from 'react-router-dom';
 import styles from './HomePage.module.css';
-import logo from '/public/images/TravelTrucks.svg';
+import logo from '../../assets/images/TravelTrucks.svg';
 
 function HomePage() {
   const navigate = useNavigate();

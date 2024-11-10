@@ -5,7 +5,7 @@ import styles from './CamperDetailPage.module.css';
 import { fetchCamperDetails } from '../../redux/vehiclesSlice';
 import Loader from '../../components/Loader/Loader';
 import Header from '../../components/Header/Header';
-import Rating from '/public/images/Rating.svg';
+import Rating from '../../assets/images/Rating.svg';
 
 function CamperDetailPage() {
   const { id } = useParams();

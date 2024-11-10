@@ -1,12 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 import styles from './Card.module.css';
-import Rating from '/public/images/Rating.svg';
-import HeartIcon from '/public/images/Heart.svg';
-import MapIcon from '/public/images/Map.svg';
-import AcIcon from '/public/images/AC.svg';
-import AutomaticIcon from '/public/images/Automatic.svg';
-import KitchenIcon from '/public/images/Kitchen.svg';
-import PetrolIcon from '/public/images/petrol.svg';
+import Rating from '../../assets/images/Rating.svg';
+import HeartIcon from '../../assets/images/Heart.svg';
+import MapIcon from '../../assets/images/Map.svg';
+import AcIcon from '../../assets/images/AC.svg';
+import AutomaticIcon from '../../assets/images/Automatic.svg';
+import KitchenIcon from '../../assets/images/Kitchen.svg';
+import PetrolIcon from '../../assets/images/Petrol.svg';
 
 const Card = ({ camper }) => {
   const navigate = useNavigate();

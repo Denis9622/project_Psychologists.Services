@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import styles from './Filters.module.css';
-import MapIcon from '/public/images/Map.svg';
-import AcIcon from '/public/images/ac.svg';
-import AutomaticIcon from '/public/images/automatic.svg';
-import KitchenIcon from '/public/images/kitchen.svg';
-import TvIcon from '/public/images/tv.svg';
-import BathroomIcon from '/public/images/bathroom.svg';
-import VanIcon from '/public/images/van.svg';
-import IntegratedIcon from '/public/images/integrated.svg';
-import AlcoveIcon from '/public/images/alcove.svg';
+import TvIcon from '../../assets/images/tv.svg';
+import BathroomIcon from '../../assets/images/bathroom.svg';
+import VanIcon from '../../assets/images/van.svg';
+import IntegratedIcon from '../../assets/images/integrated.svg';
+import AlcoveIcon from '../../assets/images/alcove.svg';
+import MapIcon from '../../assets/images/Map.svg';
+import AcIcon from '../../assets/images/AC.svg';
+import AutomaticIcon from '../../assets/images/Automatic.svg';
+import KitchenIcon from '../../assets/images/Kitchen.svg';
 
 function Filters({ onApplyFilters }) {
   const [location, setLocation] = useState('');
