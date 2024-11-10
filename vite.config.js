@@ -7,7 +7,9 @@ export default defineConfig({
   build: {
     sourcemap: true,
     rollupOptions: {
-      external: ['**/*.svg'],
+      // Убираем externals для SVG
+      // Можно настроить, если хотите, чтобы Vite игнорировал SVG файлы
     },
   },
+  assetsInclude: ['**/*.svg'], // Добавляем SVG в список обрабатываемых активов
 });
