@@ -61,7 +61,7 @@
   display: flex;
   align-items: center;
   height: 100vh;
-  background: url('/public/images/Picture.jpg') no-repeat center center/cover;
+  background: url('./../../assets/images/Picture.jpg') no-repeat center center/cover;
   padding-left: 64px;
   color: #f7f7f7;
 }
