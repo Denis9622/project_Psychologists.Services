@@ -54,10 +54,10 @@ function Filters({ onApplyFilters }) {
         className={styles.slotIcon}
       />
     ),
-    tv: <img src="/images/tv.svg" alt="TV" className={styles.slotIcon} />,
+    tv: <img src="/images/TV.svg" alt="TV" className={styles.slotIcon} />,
     bathroom: (
       <img
-        src="/images/bathroom.svg"
+        src="/images/Bathroom.svg"
         alt="Bathroom"
         className={styles.slotIcon}
       />
@@ -65,7 +65,7 @@ function Filters({ onApplyFilters }) {
   };
 
   const vehicleTypeIcons = {
-    van: <img src="/images/van.svg" alt="Van" className={styles.slotIcon} />,
+    van: <img src="/images/Van.svg" alt="Van" className={styles.slotIcon} />,
     integrated: (
       <img
         src="/images/integrated.svg"
@@ -74,7 +74,7 @@ function Filters({ onApplyFilters }) {
       />
     ),
     alcove: (
-      <img src="/images/alcove.svg" alt="Alcove" className={styles.slotIcon} />
+      <img src="/images/Alcove.svg" alt="Alcove" className={styles.slotIcon} />
     ),
   };
 

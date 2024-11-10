@@ -57,7 +57,7 @@ const Card = ({ camper }) => {
           </div>
           <div className={styles.filterSlot}>
             <img
-              src="/images/Petrol.svg" // Путь к изображению из папки public
+              src="/images/petrol.svg" // Путь к изображению из папки public
               alt="Petrol"
               className={styles.filterIcon}
             />
