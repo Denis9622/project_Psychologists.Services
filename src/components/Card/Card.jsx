@@ -1,14 +1,35 @@
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  addToFavorites,
+  removeFromFavorites,
+} from '../../redux/favoritesSlice';
 import styles from './Card.module.css';
 
 const Card = ({ camper }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  // Достаем список избранных кемперов из Redux
+  const favorites = useSelector(state => state.favorites);
+
+  // Проверяем, находится ли кемпер в избранных
+  const isFavorite = favorites.some(fav => fav.id === camper.id);
 
   const { id, name, price, description, rating, location, gallery } = camper;
   const imageUrl =
     gallery && gallery.length > 0
       ? gallery[0].original
-      : '/images/default-image-url.jpg'; // Путь к изображению по умолчанию из папки public
+      : '/images/default-image-url.jpg';
+
+  // Обработчик клика на иконку сердечка
+  const handleFavoriteToggle = () => {
+    if (isFavorite) {
+      dispatch(removeFromFavorites(camper.id)); // Удаляем из избранного
+    } else {
+      dispatch(addToFavorites(camper)); // Добавляем в избранное
+    }
+  };
 
   return (
     <div className={styles.card}>
@@ -22,22 +43,25 @@ const Card = ({ camper }) => {
           <div className={styles.priceContainer}>
             <p className={styles.price}>{price.toFixed(2)} EUR</p>
             <img
-              src="/images/Heart.svg" // Путь к изображению из папки public
+              src={
+                isFavorite ? '/images/Heart-filled.svg' : '/images/Heart.svg'
+              } // Иконка меняется в зависимости от избранного
               alt="Heart icon"
               className={styles.heartIcon}
+              onClick={handleFavoriteToggle} // Обработчик клика
             />
           </div>
         </div>
 
         <div className={styles.ratingContainer}>
           <img
-            src="/images/Rating.svg" // Путь к изображению из папки public
+            src="/images/Rating.svg"
             alt="Rating stars"
             className={styles.ratingIcon}
           />
           <span className={styles.rating}>{rating} (2 Reviews)</span>
           <img
-            src="/images/Map.svg" // Путь к изображению из папки public
+            src="/images/Map.svg"
             alt="Map icon"
             className={styles.mapIcon}
           />
@@ -49,7 +73,7 @@ const Card = ({ camper }) => {
         <div className={styles.filterSlots}>
           <div className={styles.filterSlot}>
             <img
-              src="/images/Automatic.svg" // Путь к изображению из папки public
+              src="/images/Automatic.svg"
               alt="Automatic"
               className={styles.filterIcon}
             />
@@ -57,7 +81,7 @@ const Card = ({ camper }) => {
           </div>
           <div className={styles.filterSlot}>
             <img
-              src="/images/petrol.svg" // Путь к изображению из папки public
+              src="/images/petrol.svg"
               alt="Petrol"
               className={styles.filterIcon}
             />
@@ -65,18 +89,14 @@ const Card = ({ camper }) => {
           </div>
           <div className={styles.filterSlot}>
             <img
-              src="/images/Kitchen.svg" // Путь к изображению из папки public
+              src="/images/Kitchen.svg"
               alt="Kitchen"
               className={styles.filterIcon}
             />
             <span className={styles.filterLabel}>Kitchen</span>
           </div>
           <div className={styles.filterSlot}>
-            <img
-              src="/images/AC.svg" // Путь к изображению из папки public
-              alt="AC"
-              className={styles.filterIcon}
-            />
+            <img src="/images/AC.svg" alt="AC" className={styles.filterIcon} />
             <span className={styles.filterLabel}>AC</span>
           </div>
         </div>

@@ -17,7 +17,8 @@ function CatalogPage() {
   }, [dispatch, filters]);
 
   const handleApplyFilters = newFilters => {
-    setFilters(newFilters);
+    setFilters(newFilters); // Устанавливаем фильтры
+    console.log('Applied filters:', newFilters);
   };
 
   const loadMore = () => {
@@ -29,23 +30,22 @@ function CatalogPage() {
   }
 
   if (error) {
-    return <div>Ошибка: {error}</div>;
+    return <div className={styles.error}>Ошибка: {error}</div>;
   }
 
-  console.log('list:', list);
-
   if (!Array.isArray(list)) {
-    return <div>Ошибка: список кемперов не является массивом.</div>;
+    return (
+      <div className={styles.error}>
+        Ошибка: список кемперов не является массивом.
+      </div>
+    );
   }
 
   return (
     <div>
-      <Header /> {/* Добавляем Header здесь */}
+      <Header />
       <div className={styles.catalogContainer}>
-        {/* Блок фильтров слева */}
         <Filters onApplyFilters={handleApplyFilters} />
-
-        {/* Блок каталога справа */}
         <div className={styles.catalogList}>
           <div className={styles.cardList}>
             {list.map(camper => (

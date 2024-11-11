@@ -1,4 +1,3 @@
-// src/api/campersApi.js
 import axios from 'axios';
 
 export const fetchCampers = async filters => {

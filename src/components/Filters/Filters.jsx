@@ -29,15 +29,17 @@ function Filters({ onApplyFilters }) {
   };
 
   // Функция для применения фильтров
-  const applyFilters = () => {
+  const applyFilters = e => {
+    e.preventDefault(); // Предотвращаем перезагрузку страницы
     const activeFilters = {
-      location,
+      location: location.trim(),
       features: Object.keys(features).filter(key => features[key]),
       vehicleType: Object.keys(vehicleType).filter(key => vehicleType[key]),
     };
-    onApplyFilters(activeFilters); // Передаем только активные фильтры
+    onApplyFilters(activeFilters);
   };
 
+  // Иконки для фильтров
   const featureIcons = {
     ac: <img src="/images/AC.svg" alt="AC" className={styles.slotIcon} />,
     automatic: (
