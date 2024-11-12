@@ -1,20 +1,22 @@
-// redux/favoritesSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 
 const favoritesSlice = createSlice({
   name: 'favorites',
-  initialState: [],
+  initialState: {
+    list: [], // Список избранных кемперов
+  },
   reducers: {
     addToFavorites: (state, action) => {
       const camper = action.payload;
-      const isAlreadyFavorite = state.some(fav => fav.id === camper.id);
+      const isAlreadyFavorite = state.list.some(fav => fav.id === camper.id);
       if (!isAlreadyFavorite) {
-        state.push(camper);
+        state.list.push(camper);
       }
     },
     removeFromFavorites: (state, action) => {
       const camperId = action.payload;
-      return state.filter(camper => camper.id !== camperId);
+      // Оставляем только те кемперы, которые не совпадают по id
+      state.list = state.list.filter(camper => camper.id !== camperId);
     },
   },
 });

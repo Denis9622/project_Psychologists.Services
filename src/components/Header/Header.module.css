@@ -1,5 +1,4 @@
-/* Header.module.css */
-
+/* CSS для Header */
 .header {
   display: flex;
   align-items: center;
@@ -9,13 +8,13 @@
   width: 100%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  padding: 0;
+  padding: 0 64px; /* Отступ слева и справа для центрирования контента */
 }
 
 .logo {
   display: flex;
   align-items: center;
-  margin-left: 64px;
+  margin-right: 20px; /* Добавляем немного отступа справа для логотипа */
 }
 
 .logoImage {
@@ -55,5 +54,5 @@
 }
 
 .active {
-  color: red; /* Червоний колір для активного пункту навігації */
+  color: red; /* Красный цвет для активного пункта навигации */
 }

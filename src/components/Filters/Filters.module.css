@@ -1,8 +1,12 @@
+/* CSS для Filters */
 .filtersContainer {
   width: 360px;
-  padding: 20px;
-  margin-right: 64px;
+  padding: 64px;
+  margin-right: 20px; /* Небольшой отступ справа */
+  margin-top: 0; /* Убираем отступ сверху для выравнивания с логотипом */
   border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .subtitle {
@@ -65,13 +69,13 @@
 .slotContainer {
   display: flex;
   flex-wrap: wrap;
-  width: 360px;
+  width: 100%;
   gap: 12px;
-  margin-top: 48px;
+  margin-top: 20px;
 }
 
 .slot {
-  width: 112px;
+  width: calc(33.33% - 8px);
   height: 96px;
   display: flex;
   flex-direction: column;
@@ -100,12 +104,11 @@
 }
 
 .slot:hover {
-  border-color: #E44848;
+  border-color: #e44848;
 }
 
-/* Новый стиль для активного слота */
 .activeSlot {
-  border-color: #E44848;
+  border-color: #e44848;
   background-color: rgba(228, 72, 72, 0.1);
 }
 
@@ -114,7 +117,7 @@
 }
 
 .activeSlot .slotLabel {
-  color: #E44848;
+  color: #e44848;
 }
 
 .slotLabel {
@@ -128,8 +131,8 @@
 .applyButton {
   width: 166px;
   padding: 12px;
-  background-color: #E44848;
-  color: #FFFFFF;
+  background-color: #e44848;
+  color: #ffffff;
   border: none;
   border-radius: 200px;
   cursor: pointer;
@@ -140,4 +143,14 @@
 
 .applyButton:hover {
   background-color: #4d0707;
+}
+
+.select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+  font-size: 16px;
+  color: #101828;
 }

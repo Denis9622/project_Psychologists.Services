@@ -2,17 +2,17 @@ import { useState } from 'react';
 import styles from './Filters.module.css';
 
 function Filters({ onApplyFilters }) {
-  const [location, setLocation] = useState('');
+  const [city, setCity] = useState('');
   const [features, setFeatures] = useState({
     ac: false,
-    automatic: false,
-    kitchen: false,
     tv: false,
     bathroom: false,
+    kitchen: false,
+    automatic: false,
   });
   const [vehicleType, setVehicleType] = useState({
     van: false,
-    integrated: false,
+    fullyIntegrated: false,
     alcove: false,
   });
 
@@ -28,24 +28,17 @@ function Filters({ onApplyFilters }) {
     setVehicleType(prev => ({ ...prev, [name]: checked }));
   };
 
-  // Функция для применения фильтров
-  const applyFilters = e => {
-    e.preventDefault(); // Предотвращаем перезагрузку страницы
-    const activeFilters = {
-      location: location.trim(),
-      features: Object.keys(features).filter(key => features[key]),
-      vehicleType: Object.keys(vehicleType).filter(key => vehicleType[key]),
-    };
-    onApplyFilters(activeFilters);
+  const applyFilters = () => {
+    onApplyFilters({ ...features, ...vehicleType, city });
   };
 
-  // Иконки для фильтров
   const featureIcons = {
     ac: <img src="/images/AC.svg" alt="AC" className={styles.slotIcon} />,
-    automatic: (
+    tv: <img src="/images/TV.svg" alt="TV" className={styles.slotIcon} />,
+    bathroom: (
       <img
-        src="/images/Automatic.svg"
-        alt="Automatic"
+        src="/images/Bathroom.svg"
+        alt="Bathroom"
         className={styles.slotIcon}
       />
     ),
@@ -56,11 +49,10 @@ function Filters({ onApplyFilters }) {
         className={styles.slotIcon}
       />
     ),
-    tv: <img src="/images/TV.svg" alt="TV" className={styles.slotIcon} />,
-    bathroom: (
+    automatic: (
       <img
-        src="/images/Bathroom.svg"
-        alt="Bathroom"
+        src="/images/Automatic.svg"
+        alt="Automatic"
         className={styles.slotIcon}
       />
     ),
@@ -68,7 +60,7 @@ function Filters({ onApplyFilters }) {
 
   const vehicleTypeIcons = {
     van: <img src="/images/Van.svg" alt="Van" className={styles.slotIcon} />,
-    integrated: (
+    fullyIntegrated: (
       <img
         src="/images/integrated.svg"
         alt="Fully Integrated"
@@ -88,8 +80,8 @@ function Filters({ onApplyFilters }) {
           <img src="/images/Map.svg" alt="Map icon" className={styles.icon} />
           <input
             type="text"
-            value={location}
-            onChange={e => setLocation(e.target.value)}
+            value={city}
+            onChange={e => setCity(e.target.value)}
             placeholder="Kyiv, Ukraine"
             className={styles.input}
           />
@@ -150,7 +142,7 @@ function Filters({ onApplyFilters }) {
       </div>
 
       <button onClick={applyFilters} className={styles.applyButton}>
-        Search
+        Применить фильтры
       </button>
     </div>
   );

@@ -11,23 +11,33 @@ const Card = ({ camper }) => {
   const dispatch = useDispatch();
 
   // Достаем список избранных кемперов из Redux
-  const favorites = useSelector(state => state.favorites);
+  const favorites = useSelector(state => state.favorites.list);
 
   // Проверяем, находится ли кемпер в избранных
   const isFavorite = favorites.some(fav => fav.id === camper.id);
 
-  const { id, name, price, description, rating, location, gallery } = camper;
+  // Извлекаем данные с проверками
+  const {
+    id,
+    name,
+    price = 0,
+    description = '',
+    rating = 0,
+    location = '',
+    gallery = [],
+    transmission,
+    engine,
+    kitchen,
+    AC,
+  } = camper;
   const imageUrl =
-    gallery && gallery.length > 0
-      ? gallery[0].original
-      : '/images/default-image-url.jpg';
+    gallery.length > 0 ? gallery[0].original : '/images/default-image-url.jpg';
 
-  // Обработчик клика на иконку сердечка
   const handleFavoriteToggle = () => {
     if (isFavorite) {
-      dispatch(removeFromFavorites(camper.id)); // Удаляем из избранного
+      dispatch(removeFromFavorites(camper.id));
     } else {
-      dispatch(addToFavorites(camper)); // Добавляем в избранное
+      dispatch(addToFavorites(camper));
     }
   };
 
@@ -45,10 +55,10 @@ const Card = ({ camper }) => {
             <img
               src={
                 isFavorite ? '/images/Heart-filled.svg' : '/images/Heart.svg'
-              } // Иконка меняется в зависимости от избранного
+              }
               alt="Heart icon"
               className={styles.heartIcon}
-              onClick={handleFavoriteToggle} // Обработчик клика
+              onClick={handleFavoriteToggle}
             />
           </div>
         </div>
@@ -69,36 +79,49 @@ const Card = ({ camper }) => {
         </div>
 
         <p className={styles.description}>{description}</p>
-
         <div className={styles.filterSlots}>
-          <div className={styles.filterSlot}>
-            <img
-              src="/images/Automatic.svg"
-              alt="Automatic"
-              className={styles.filterIcon}
-            />
-            <span className={styles.filterLabel}>Automatic</span>
-          </div>
-          <div className={styles.filterSlot}>
-            <img
-              src="/images/petrol.svg"
-              alt="Petrol"
-              className={styles.filterIcon}
-            />
-            <span className={styles.filterLabel}>Petrol</span>
-          </div>
-          <div className={styles.filterSlot}>
-            <img
-              src="/images/Kitchen.svg"
-              alt="Kitchen"
-              className={styles.filterIcon}
-            />
-            <span className={styles.filterLabel}>Kitchen</span>
-          </div>
-          <div className={styles.filterSlot}>
-            <img src="/images/AC.svg" alt="AC" className={styles.filterIcon} />
-            <span className={styles.filterLabel}>AC</span>
-          </div>
+          {transmission === 'automatic' && (
+            <div className={styles.filterSlot}>
+              <img
+                src="/images/Automatic.svg"
+                alt="Automatic"
+                className={styles.filterIcon}
+              />
+              <span className={styles.filterLabel}>Automatic</span>
+            </div>
+          )}
+          {engine && (
+            <div className={styles.filterSlot}>
+              <img
+                src="/images/petrol.svg"
+                alt={engine}
+                className={styles.filterIcon}
+              />
+              <span className={styles.filterLabel}>
+                {engine.charAt(0).toUpperCase() + engine.slice(1)}
+              </span>
+            </div>
+          )}
+          {kitchen && (
+            <div className={styles.filterSlot}>
+              <img
+                src="/images/Kitchen.svg"
+                alt="Kitchen"
+                className={styles.filterIcon}
+              />
+              <span className={styles.filterLabel}>Kitchen</span>
+            </div>
+          )}
+          {AC && (
+            <div className={styles.filterSlot}>
+              <img
+                src="/images/AC.svg"
+                alt="AC"
+                className={styles.filterIcon}
+              />
+              <span className={styles.filterLabel}>AC</span>
+            </div>
+          )}
         </div>
 
         <button

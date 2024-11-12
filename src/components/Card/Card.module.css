@@ -1,5 +1,6 @@
 .card {
   display: flex;
+  width: 888px;
   border: 1px solid #ddd;
   border-radius: 10px;
   overflow: hidden;
