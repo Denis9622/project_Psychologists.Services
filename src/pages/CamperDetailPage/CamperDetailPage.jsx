@@ -6,6 +6,7 @@ import { fetchCamperDetails } from '../../redux/vehiclesSlice';
 import Loader from '../../components/Loader/Loader';
 import Header from '../../components/Header/Header';
 
+
 function CamperDetailPage() {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -23,6 +24,18 @@ function CamperDetailPage() {
   if (loading) return <Loader />;
   if (error) return <div>Error: {error}</div>;
   if (!camper) return <div>Camper not found</div>;
+
+
+  
+
+  const {
+    name,
+    price = 0,
+    description = '',
+    rating = 0,
+    location = '',
+    gallery = [],
+  } = camper;
 
   // Содержимое вкладки "Features"
   const renderFeatures = () => (
@@ -74,28 +87,32 @@ function CamperDetailPage() {
     <div>
       <Header /> {/* Добавили Header здесь */}
       <div className={styles.container}>
-        <div className={styles.leftSection}>
-          <h1 className={styles.title}>{camper.name || 'No name available'}</h1>
-          <div className={styles.ratingContainer}>
-            <p className={styles.rating}>
-              <img
-                src="/images/Rating.svg" // Обновленный путь к изображению
-                alt="Rating stars"
-                className={styles.ratingIcon}
-              />
-              Rating: {camper.rating || 'N/A'}
-            </p>
-            <p className={styles.location}>
-              City: {camper.location || 'Unknown'}
-            </p>
+        <div className={styles.content}>
+          <div className={styles.header}>
+            <h3 className={styles.name}>{name}</h3>
           </div>
-          <p className={styles.price}>
-            {camper.price ? `${camper.price} EUR` : 'Price not available'}
-          </p>
+
+          <div className={styles.ratingContainer}>
+            <img
+              src="/images/Rating.svg"
+              alt="Rating stars"
+              className={styles.ratingIcon}
+            />
+            <span className={styles.rating}>{rating} (2 Reviews)</span>
+            <img
+              src="/images/Map.svg"
+              alt="Map icon"
+              className={styles.mapIcon}
+            />
+            <span className={styles.city}>{location}</span>
+          </div>
+          <div>
+            <p className={styles.price}>{price.toFixed(2)} EUR</p>
+          </div>
 
           <div className={styles.images}>
-            {camper.gallery && camper.gallery.length > 0 ? (
-              camper.gallery.slice(0, 4).map((image, index) => (
+            {gallery.length > 0 ? (
+              gallery.slice(0, 4).map((image, index) => (
                 <img
                   key={index}
                   src={image.original} // Путь к изображениям также должен быть с учетом папки public
@@ -109,7 +126,7 @@ function CamperDetailPage() {
           </div>
 
           <p className={styles.description}>
-            {camper.description || 'No description available'}
+            {description || 'No description available'}
           </p>
 
           {/* Переключаемые вкладки */}

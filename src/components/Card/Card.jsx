@@ -30,6 +30,7 @@ const Card = ({ camper }) => {
     kitchen,
     AC,
   } = camper;
+
   const imageUrl =
     gallery.length > 0 ? gallery[0].original : '/images/default-image-url.jpg';
 
@@ -57,7 +58,9 @@ const Card = ({ camper }) => {
                 isFavorite ? '/images/Heart-filled.svg' : '/images/Heart.svg'
               }
               alt="Heart icon"
-              className={styles.heartIcon}
+              className={`${styles.heartIcon} ${
+                isFavorite ? styles.favorite : ''
+              }`}
               onClick={handleFavoriteToggle}
             />
           </div>

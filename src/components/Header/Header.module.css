@@ -1,12 +1,13 @@
 /* CSS для Header */
 .header {
+  max-width: 1440px;
   display: flex;
   align-items: center;
   background-color: white;
   position: fixed;
   top: 0;
   width: 100%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #f7f7f7;
   z-index: 1000;
   padding: 0 64px; /* Отступ слева и справа для центрирования контента */
 }
@@ -38,13 +39,13 @@
 }
 
 .link_li {
-  margin-right: 20px;
+  margin-right: 32px;
 }
 
 .navLink {
   text-decoration: none;
   color: #333;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   transition: color 0.3s;
 }
@@ -56,3 +57,5 @@
 .active {
   color: red; /* Красный цвет для активного пункта навигации */
 }
+
+

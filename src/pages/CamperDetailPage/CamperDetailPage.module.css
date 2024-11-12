@@ -3,6 +3,11 @@
   padding: 40px 64px;
   gap: 40px;
 }
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 .leftSection {
   width: 60%;

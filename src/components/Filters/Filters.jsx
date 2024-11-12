@@ -142,7 +142,7 @@ function Filters({ onApplyFilters }) {
       </div>
 
       <button onClick={applyFilters} className={styles.applyButton}>
-        Применить фильтры
+        Search
       </button>
     </div>
   );

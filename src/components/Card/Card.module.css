@@ -1,21 +1,20 @@
 .card {
   display: flex;
   width: 888px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
+  border: 1px solid rgba(218, 221, 225, 1);
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 10px;
+  padding: 24px;
 }
 
 .image {
   width: 292px;
   height: 320px;
   object-fit: cover;
+  margin-right: 24px;
 }
 
 .content {
-  padding: 24px;
   flex: 1;
 }
 
@@ -23,12 +22,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
 }
 
 .name {
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 600;
+  line-height: 1.33;
 }
 
 .priceContainer {
@@ -44,76 +43,88 @@
 }
 
 .heartIcon {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer; 
+  transition: fill 0.3s ease;
+}
+/* Стиль для активной иконки */
+.favorite {
+  color: rgba(228, 72, 72, 1); /* Задаём красный цвет */
+  fill: rgba(228, 72, 72, 1); /* Для SVG, если он поддерживает fill */
 }
 
 .ratingContainer {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 8px;
-}
-
-.stars {
-  color: #ffcc00;
-  font-size: 16px;
+  gap: 4px;
+  margin-bottom: 24px;
 }
 
 .rating {
   font-size: 16px;
-  color: #6c717b;
+  font-weight: 400;
+  color: rgba(16, 24, 40, 1);
+  margin-right: 12px;
 }
 
-.cityContainer {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.mapIcon {
+  width: 16px;
+  height: 16px;
 }
 
 .city {
   font-size: 16px;
-  color: #6c717b;
-  margin-bottom: 8px;
+  font-weight: 400;
+  color: rgba(16, 24, 40, 1);
 }
 
 .description {
-  font-size: 14px;
-  color: #6c717b;
-  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(71, 84, 103, 1);
+  margin-bottom: 24px;
 }
 
 .filterSlots {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 16px;
+  gap: 8px;
+  margin-bottom: 24px;
 }
 
 .filterSlot {
   display: flex;
   align-items: center;
+  background-color: rgba(242, 244, 247, 1);
+  border-radius: 100px;
+    padding: 12px 18px 12px 18px;
+
 }
 
 .filterIcon {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
 }
 
 .filterLabel {
   margin-left: 8px;
-  font-size: 14px;
-  color: #6c717b;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(16, 24, 40, 1);
 }
 
 .button {
-  padding: 10px 20px;
-  background-color: #E44848;
+  display: block;
+  width: 100%;
+  max-width: 166px;
+  padding: 16px 40px;
+  background-color: #e44848;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 200px;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 16px;
   transition: background-color 0.3s;
 }

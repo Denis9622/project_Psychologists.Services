@@ -1,4 +1,6 @@
 .hero {
+  max-width: 1440px;
+
   display: flex;
   align-items: center;
   height: 100vh;
@@ -32,13 +34,15 @@
   padding: 16px 48px;
   border-radius: 200px;
   background-color: #e44848;
-  color: #FFFFFF;
+  color: #ffffff;
   border: none;
   cursor: pointer;
   font-weight: 600;
   font-size: 16px;
   text-align: center;
   transition: background-color 0.3s;
+    box-sizing: border-box; /* Новый стиль */
+
 }
 
 .button:hover {

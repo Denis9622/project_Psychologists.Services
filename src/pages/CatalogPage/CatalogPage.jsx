@@ -19,23 +19,23 @@ function CatalogPage() {
     van: false,
     fullyIntegrated: false,
     alcove: false,
-    city: '', // Добавлен фильтр города
+    city: '',
   });
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
-    dispatch(fetchCampers(filters));
-  }, [dispatch, filters]);
+    dispatch(fetchCampers({ filters, page }));
+  }, [dispatch, filters, page]); // Добавлены все зависимости
+
+  const loadMore = () => {
+    setPage(prevPage => prevPage + 1);
+  };
 
   const handleApplyFilters = newFilters => {
     setFilters(newFilters);
-    console.log('Выбранные фильтры:', newFilters);
+    setPage(1);
   };
 
-  const loadMore = () => {
-    dispatch(fetchCampers({ ...filters, loadMore: true }));
-  };
-
-  // Фильтрация списка кемперов перед отрисовкой
   const filteredCampers = list.filter(camper => {
     return (
       (!filters.ac || camper.AC === filters.ac) &&
@@ -49,6 +49,12 @@ function CatalogPage() {
       (filters.city === '' || camper.location.includes(filters.city))
     );
   });
+
+  useEffect(() => {
+    if (page > 1) {
+      dispatch(fetchCampers({ filters, page }));
+    }
+  }, [dispatch, filters, page]); // Добавлены все зависимости
 
   if (loading) return <p>Загрузка...</p>;
   if (error) return <p>Ошибка: {error}</p>;
@@ -68,9 +74,11 @@ function CatalogPage() {
               <p>Нет результатов по выбранным фильтрам</p>
             )}
           </div>
-          <button onClick={loadMore} className={styles.loadMoreButton}>
-            Load More
-          </button>
+          {filteredCampers.length > 0 && (
+            <button onClick={loadMore} className={styles.loadMoreButton}>
+              Load More
+            </button>
+          )}
         </div>
       </div>
     </div>
