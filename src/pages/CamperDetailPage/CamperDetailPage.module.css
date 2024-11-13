@@ -1,8 +1,16 @@
+
 .container {
   display: flex;
-  padding: 40px 64px;
-  gap: 40px;
+  padding: 100px 64px;
+  /* gap: 40px; */
 }
+.name {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.33;
+  /* margin-bottom: 8px; */
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -15,19 +23,19 @@
 
 .rightSection {
   width: 40%; /* Делаем правый блок занимать оставшуюся половину страницы */
-  margin-left: 40px; /* Отступ 40 px */
+  /* margin-left: 40px; */
 }
 
 .title {
   font-size: 32px;
   font-weight: bold;
-  margin-bottom: 16px;
+  /* margin-bottom: 16px; */
 }
 
 .ratingContainer {
   display: flex;
   align-items: center;
-  gap: 16px;
+  /* gap: 16px; */
 }
 
 .rating,
@@ -42,13 +50,13 @@
   font-size: 18px;
   font-weight: bold;
   color: #333;
-  margin-bottom: 16px;
+  /* margin-bottom: 16px; */
 }
 
 .images {
   display: flex;
-  gap: 16px;
-  margin: 24px 0;
+  /* gap: 16px; */
+  /* margin: 24px 0; */
 }
 
 .image {
@@ -61,12 +69,12 @@
 .description {
   font-size: 16px;
   color: #333;
-  margin-bottom: 32px;
+  /* margin-bottom: 32px; */
 }
 
 .features {
   display: flex;
-  gap: 40px;
+  /* gap: 40px; */
 }
 
 .featuresLeft {
@@ -84,7 +92,7 @@
 .detailsList {
   list-style: none;
   padding: 0;
-  margin: 0 0 24px 0;
+  /* margin: 0 0 24px 0; */
   font-size: 16px;
   color: #555;
 }
@@ -96,34 +104,34 @@
 .bookingTitle {
   font-size: 24px;
   font-weight: bold;
-  margin-bottom: 16px;
+  /* margin-bottom: 16px; */
 }
 
 .bookingText {
   font-size: 16px;
   color: #555;
-  margin-bottom: 24px;
+  /* margin-bottom: 24px; */
 }
 
 .bookingForm label {
   display: block;
   font-size: 14px;
   color: #555;
-  margin-bottom: 8px;
+  /* margin-bottom: 8px; */
 }
 
 .bookingForm input,
 .bookingForm textarea {
   width: 100%;
-  padding: 8px;
+  /* padding: 8px; */
   font-size: 14px;
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
   border-radius: 4px;
-  margin-bottom: 16px;
+  /* margin-bottom: 16px; */
 }
 
 .submitButton {
-  padding: 12px 24px;
+  /* padding: 12px 24px; */
   background-color: #e44848;
   color: white;
   border: none;
@@ -140,12 +148,12 @@
 
 .tabs {
   display: flex;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   border-bottom: 1px solid #ddd;
 }
 
 .tabButton {
-  padding: 10px 20px;
+  /* padding: 10px 20px; */
   font-size: 16px;
   color: #333;
   background: none;
@@ -174,7 +182,7 @@
 }
 
 .tabContent {
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 
 .featuresList, .detailsList {
@@ -183,15 +191,16 @@
 }
 
 .reviews {
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 
 .review {
-  margin-bottom: 15px;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 10px;
+  /* margin-bottom: 15px; */
+  /* border-bottom: 1px solid #ddd; */
+  /* padding-bottom: 10px; */
 }
 
 .description {
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
+

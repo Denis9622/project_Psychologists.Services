@@ -19,20 +19,20 @@
   font-weight: 400;
   font-size: 16px;
   color: #6c717b;
-  margin-bottom: 12px;
 }
 
 .subtitleh2 {
   font-weight: 500;
   font-size: 18px;
   color: #475467;
-  margin-bottom: 20px;
+  margin-bottom: 32px;
 }
 
 .inputContainer {
   position: relative;
   display: flex;
   align-items: center;
+  margin-top: 8px;
 }
 
 .icon {
@@ -43,7 +43,6 @@
   pointer-events: none;
   top: 50%;
   transform: translateY(-50%);
-  
 }
 
 .input {
@@ -54,10 +53,8 @@
   border: none;
   border-radius: 12px;
   font-weight: 400;
-  background-color: #fff;
   box-sizing: border-box;
-    background-color: #F7F7F7;
-
+  background-color: #f7f7f7;
 }
 
 .input::placeholder {
@@ -144,8 +141,7 @@
   transition: background-color 0.3s ease;
   text-align: center; /* Центрируем текст */
   line-height: 1.5; /* Высота строки для центрирования текста по вертикали */
-    box-sizing: border-box; /* Новый стиль */
-
+  box-sizing: border-box; /* Новый стиль */
 }
 
 .applyButton:hover {
@@ -153,6 +149,5 @@
 }
 
 .applyButton:focus {
-  outline: none;  /* Убираем стандартный обвод фокуса */
+  outline: none; /* Убираем стандартный обвод фокуса */
 }
-

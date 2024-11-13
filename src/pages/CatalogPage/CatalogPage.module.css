@@ -1,8 +1,6 @@
 .catalogContainer {
-  max-width: 1440px;
   display: flex;
-  gap: 20px;
-  padding-top: 100px; /* Отступ сверху для предотвращения перекрытия хедером */
+  padding-top: 48px; /* Отступ сверху для предотвращения перекрытия хедером */
 }
 
 .catalogList {

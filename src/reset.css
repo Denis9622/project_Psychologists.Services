@@ -1,25 +1,27 @@
-*,
+/* *,
 *::before,
 *::after {
   box-sizing: border-box;
-}
+} */
 
-body {
+/* body {
   margin: 0 auto;
   padding: 40px;
-}
+} */
 
-ul {
+
+
+/* ul {
   margin: 0;
   padding: 0;
   list-style: none;
-}
+} */
 
-li,
+/* li,
 p {
   margin: 0;
   padding: 0;
-}
+} */
 
 button,
 button:focus,
