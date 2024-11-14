@@ -28,10 +28,10 @@ button:focus,
 button:active {
   margin: 0;
   padding: 0;
-  border: none;
+  /* border: none;
   background: none;
   font: inherit;
   color: inherit;
   cursor: pointer;
-  outline: none;
+  outline: none; */
 }
