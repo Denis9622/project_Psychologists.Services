@@ -4,7 +4,7 @@ import {
   signOut,
   onAuthStateChanged,
 } from 'firebase/auth';
-import { auth } from './firebase';
+import { auth } from './../Firebase/firebase';
 
 export const register = async (email, password) => {
   try {

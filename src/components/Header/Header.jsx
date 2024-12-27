@@ -1,8 +1,22 @@
-import { NavLink, useLocation, Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { getCurrentUser, logout } from '../Auth/auth'; // Убедитесь, что путь правильный
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import styles from './Header.module.css';
 
 function Header() {
   const location = useLocation();
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = getCurrentUser(user => {
+      setUser(user);
+    });
+
+    // Проверьте, что unsubscribe является функцией
+    if (typeof unsubscribe === 'function') {
+      return () => unsubscribe();
+    }
+  }, []);
 
   return (
     <header className={styles.header}>
@@ -37,12 +51,23 @@ function Header() {
         </ul>
       </nav>
       <div className={styles.userAuth}>
-        <Link to="/signin" className={styles.linkAuth}>
-          <p className={styles.signup}>Log In</p>
-        </Link>
-        <Link to="/signup" className={styles.linkAuth}>
-          <p className={styles.registration}>Registration</p>
-        </Link>
+        {user ? (
+          <>
+            <span className={styles.username}>{user.email}</span>
+            <button onClick={logout} className={styles.linkAuth}>
+              Logout
+            </button>
+          </>
+        ) : (
+          <>
+            <Link to="/signin" className={styles.linkAuth}>
+              <p className={styles.signup}>Log In</p>
+            </Link>
+            <Link to="/signup" className={styles.linkAuth}>
+              <p className={styles.registration}>Registration</p>
+            </Link>
+          </>
+        )}
       </div>
     </header>
   );

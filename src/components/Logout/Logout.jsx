@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { logout } from './auth';
+import { logout } from './../Auth/auth';
 
 function Logout() {
   useEffect(() => {

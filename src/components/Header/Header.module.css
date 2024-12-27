@@ -5,8 +5,8 @@
   /* position: fixed; */
   top: 0;
   width: 100%;
-  background-color: #f7f7f7;
   z-index: 1000;
+  margin-top: 24px;
   padding: 0px 128px; /* Отступ слева и справа для центрирования контента */
   margin-bottom: 24px;
   

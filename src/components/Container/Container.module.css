@@ -1,0 +1,9 @@
+.container {
+  background-image: url('/public/images/Picture.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* background: url('/public/images/Picture.jpg') no-repeat center center/cover; */
+}
