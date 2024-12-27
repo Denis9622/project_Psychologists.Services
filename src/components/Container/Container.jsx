@@ -1,4 +1,3 @@
-// Container.js
 import Header from './../Header/Header';
 import HomePage from './../../pages/HomePage/HomePage';
 import styles from './Container.module.css';
