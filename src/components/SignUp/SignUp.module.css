@@ -13,20 +13,20 @@
 
 .modalContent {
   background: white;
-  max-width: 438px;
+  width: 566px;
   padding: 64px;
-  border-radius: 5px;
+  border-radius: 30px; /* Закругление углов */
   position: relative;
   z-index: 1001;
 }
 
 .closeButton {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 20px;
+  right: 20px;
   background: transparent;
   border: none;
-  font-size: 24px;
+  font-size: 40px;
   cursor: pointer;
 }
 
@@ -44,25 +44,57 @@
 }
 
 .textclass {
+  max-width: 438px;
   color: rgba(25, 26, 21, 0.5);
   margin-bottom: 40px;
 }
 
-.input {
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 1px solid rgba(25, 26, 21, 0.1); /* Задаем цвет бордера */
-  border-radius: 12px;
+.input::placeholder {
+  color: rgba(25, 26, 21, 1);
 }
 
 .passwordWrapper {
-  display: flex;
-  align-items: center;
+  position: relative;
+  width: 100%;
+  display: flex; /* Используем flexbox для вертикального центрирования */
+  justify-content: space-between; /* Для того чтобы элементы располагались друг от друга */
+  align-items: center; /* Центрируем элементы по вертикали */
+}
+
+.input {
+  margin-bottom: 18px;
+  padding: 16px;
+  border: 1px solid rgba(25, 26, 21, 0.1);
+  border-radius: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 30px; /* Создаем пространство для иконки */
 }
 
 .passwordToggleIcon {
-  cursor: pointer;
-  margin-left: -30px;
+  position: absolute;
+  right: 10px;
+  top: 37%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.passwordToggleIcon svg {
+  width: 20px;
+  height: 20px; /* Убедимся, что обе иконки имеют одинаковые размеры */
+  display: block;
+}
+
+.passwordToggleIcon svg path {
+  stroke: rgba(25, 26, 21, 1); /* Основной цвет для иконок */
+}
+
+.passwordToggleIcon:hover svg path {
+  stroke: #0056b3; /* Цвет при наведении */
+}
+
+.passwordToggleIcon:active svg path {
+  stroke: #003366; /* Цвет при клике */
 }
 
 .error {
@@ -72,10 +104,11 @@
 }
 
 .submitButton {
-  padding: 10px;
+  margin-top: 12px;
+  padding: 16px 0px;
   background-color: #3470ff;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 30px;
   cursor: pointer;
 }

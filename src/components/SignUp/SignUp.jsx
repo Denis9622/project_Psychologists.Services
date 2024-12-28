@@ -6,7 +6,7 @@ import { register as registerUser } from './../Auth/auth'; // Импортиру
 import styles from './SignUp.module.css';
 
 function SignUp({ onClose }) {
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false); // Состояние для управления видимостью пароля
   const {
     register,
     handleSubmit,
@@ -15,6 +15,7 @@ function SignUp({ onClose }) {
     resolver: yupResolver(signUpSchema),
   });
 
+  // Переключение видимости пароля
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
@@ -54,25 +55,35 @@ function SignUp({ onClose }) {
             we need some information. Please provide us with the following
             information.
           </p>
-          <input type="text" placeholder="Name" {...register('name')} />
+          <input
+            type="text"
+            placeholder="Name"
+            className={styles.input}
+            {...register('name')}
+          />
           {errors.name && <p className={styles.error}>{errors.name.message}</p>}
 
-          <input type="email" placeholder="Email" {...register('email')} />
+          <input
+            type="email"
+            placeholder="Email"
+            className={styles.input}
+            {...register('email')}
+          />
           {errors.email && (
             <p className={styles.error}>{errors.email.message}</p>
           )}
 
           <div className={styles.passwordWrapper}>
             <input
-              type={showPassword ? 'text' : 'password'}
+              type={showPassword ? 'text' : 'password'} // Изменяем тип ввода пароля в зависимости от состояния showPassword
               placeholder="Password"
+              className={styles.input}
               {...register('password')}
             />
             <span
               onClick={togglePasswordVisibility}
-              className={styles.passwordToggleIcon}
+              className={styles.passwordToggleIcon} // Добавляем иконку для переключения видимости пароля
             >
-              {/* Показываем иконку в зависимости от состояния showPassword */}
               {showPassword ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
