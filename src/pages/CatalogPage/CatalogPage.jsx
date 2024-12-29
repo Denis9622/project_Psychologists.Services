@@ -1,80 +1,76 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCampers } from '../../redux/vehiclesSlice';
+import { fetchPsychologistsAsync } from '../../redux/psychologistsSlice';
+import {
+  addToFavorites,
+  removeFromFavorites,
+} from '../../redux/favoritesSlice';
 import Card from '../../components/Card/Card';
-import Filters from '../../components/Filters/Filters';
 import Header from '../../components/Header/Header';
 import styles from './CatalogPage.module.css';
 
 function CatalogPage() {
   const dispatch = useDispatch();
-  const { list, loading, error } = useSelector(state => state.vehicles);
+  const {
+    list: psychologists,
+    loading,
+    error,
+  } = useSelector(state => state.psychologists);
+  const favorites = useSelector(state => state.favorites.list);
 
-  const [filters, setFilters] = useState({
-    ac: false,
-    tv: false,
-    bathroom: false,
-    kitchen: false,
-    automatic: false,
-    van: false,
-    fullyIntegrated: false,
-    alcove: false,
-    city: '',
-  });
-  const [page, setPage] = useState(1);
+  const [visibleCount, setVisibleCount] = useState(3); // Показывать сначала 3 карточки
 
   useEffect(() => {
-    dispatch(fetchCampers({ filters, page }));
-  }, [dispatch, filters, page]); // Добавлены все зависимости
+    dispatch(fetchPsychologistsAsync()); // Загружаем данные из Firebase
+  }, [dispatch]);
 
   const loadMore = () => {
-    setPage(prevPage => prevPage + 1);
+    setVisibleCount(prevCount => prevCount + 3); // Увеличиваем количество отображаемых карточек на 3
   };
 
-  const handleApplyFilters = newFilters => {
-    setFilters(newFilters);
-    setPage(1);
-  };
-
-  const filteredCampers = list.filter(camper => {
-    return (
-      (!filters.ac || camper.AC === filters.ac) &&
-      (!filters.tv || camper.TV === filters.tv) &&
-      (!filters.bathroom || camper.bathroom === filters.bathroom) &&
-      (!filters.kitchen || camper.kitchen === filters.kitchen) &&
-      (!filters.automatic || camper.transmission === 'automatic') &&
-      (!filters.van || camper.form === 'van') &&
-      (!filters.fullyIntegrated || camper.form === 'fullyIntegrated') &&
-      (!filters.alcove || camper.form === 'alcove') &&
-      (filters.city === '' || camper.location.includes(filters.city))
-    );
-  });
-
-  useEffect(() => {
-    if (page > 1) {
-      dispatch(fetchCampers({ filters, page }));
+  const toggleFavorite = psychologist => {
+    const isFavorite = favorites.some(fav => fav.id === psychologist.id);
+    if (isFavorite) {
+      dispatch(removeFromFavorites(psychologist.id));
+    } else {
+      dispatch(addToFavorites(psychologist));
     }
-  }, [dispatch, filters, page]); // Добавлены все зависимости
+  };
 
-  if (loading) return <p>Загрузка...</p>;
-  if (error) return <p>Ошибка: {error}</p>;
+  if (loading) {
+    return <p>Загрузка...</p>;
+  }
+
+  if (error) {
+    return <p>Ошибка: {error}</p>;
+  }
 
   return (
     <div>
       <Header />
       <div className={styles.catalogContainer}>
-        <Filters onApplyFilters={handleApplyFilters} />
         <div className={styles.catalogList}>
           <div className={styles.cardList}>
-            {filteredCampers.length > 0 ? (
-              filteredCampers.map(camper => (
-                <Card key={camper.id} camper={camper} />
-              ))
+            {psychologists.length > 0 ? (
+              psychologists
+                .slice(0, visibleCount)
+                .map(psychologist => (
+                  <Card
+                    key={psychologist.id}
+                    psychologist={psychologist}
+                    isFavorite={favorites.some(
+                      fav => fav.id === psychologist.id
+                    )}
+                    onToggleFavorite={() => toggleFavorite(psychologist)}
+                  />
+                ))
             ) : (
-              <p>Нет результатов по выбранным фильтрам</p>
+              <p>Нет психологов для отображения</p>
             )}
           </div>
-          {filteredCampers.length > 0 && (
+
+          {/* Кнопка Load More */}
+          {visibleCount < psychologists.length && (
             <button onClick={loadMore} className={styles.loadMoreButton}>
               Load More
             </button>

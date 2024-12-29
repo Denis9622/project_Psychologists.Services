@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { getCurrentUser, logout } from '../Auth/auth'; // Убедитесь, что путь правильный
+import { getCurrentUser, logout } from '../Auth/auth';
 import { NavLink, useLocation } from 'react-router-dom';
-import SignIn from '../Signin/SignIn';
+import SignIn from '../SignIn/Signin';
 import SignUp from '../SignUp/SignUp';
 import styles from './Header.module.css';
 
@@ -16,7 +16,6 @@ function Header() {
       setUser(user);
     });
 
-    // Проверьте, что unsubscribe является функцией
     if (typeof unsubscribe === 'function') {
       return () => unsubscribe();
     }
@@ -59,6 +58,18 @@ function Header() {
                 Psychologists
               </NavLink>
             </li>
+            {user && (
+              <li className={styles.link_li}>
+                <NavLink
+                  to="/favorites"
+                  className={`${styles.navLink} ${
+                    location.pathname === '/favorites' ? styles.active : ''
+                  }`}
+                >
+                  Favorites
+                </NavLink>
+              </li>
+            )}
           </ul>
         </nav>
         <div className={styles.userAuth}>

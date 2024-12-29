@@ -7,6 +7,8 @@ import styles from './SignUp.module.css';
 
 function SignUp({ onClose }) {
   const [showPassword, setShowPassword] = useState(false); // Состояние для управления видимостью пароля
+  const [message, setMessage] = useState(''); // Состояние для сообщения
+
   const {
     register,
     handleSubmit,
@@ -24,8 +26,10 @@ function SignUp({ onClose }) {
     try {
       const user = await registerUser(data.email, data.password); // Используем функцию регистрации
       console.log('User registered:', user);
+      setMessage('Registration successful!');
     } catch (error) {
       console.error('Error registering new user:', error);
+      setMessage('Error registering new user');
     }
   };
 
@@ -130,6 +134,7 @@ function SignUp({ onClose }) {
           <button type="submit" className={styles.submitButton}>
             Sign Up
           </button>
+          {message && <p className={styles.message}>{message}</p>}
         </form>
       </div>
     </div>

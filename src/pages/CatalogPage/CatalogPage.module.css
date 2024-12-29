@@ -1,6 +1,5 @@
 .catalogContainer {
   display: flex;
-  padding-top: 48px; /* Отступ сверху для предотвращения перекрытия хедером */
 }
 
 .catalogList {
@@ -13,32 +12,32 @@
 .cardList {
   display: flex;
   flex-wrap: wrap;
-  gap: 32px;
 }
 
 .loadMoreButton {
-  display: block; /* Преобразуем кнопку в блок */
-  width: 100%;
-  max-width: 145px;
+  max-width: 176px;
   font-size: 16px;
   font-weight: 500;
-  border: 1px solid rgba(218, 221, 225, 1);
-  border-radius: 200px;
-  padding: 10px 20px;
-  color: rgba(16, 24, 40, 1);
+  border-radius: 30px;
+  padding: 14px 48px;
+  color:rgba(251, 251, 251, 1);
+  background-color: rgba(52, 112, 255, 1);
   cursor: pointer;
-  font-weight: 600;
   margin: 0 auto;
-  margin-top: 40px;
-  box-sizing: border-box; /* Включаем padding и border в размер */
-}
-
-.loadMoreButton:hover {
-  border-color: rgba(216, 67, 67, 1);
+  margin-bottom: 100px;
+  border: none;
 }
 
 .error {
   color: red;
   font-size: 18px;
   margin: 20px 0;
+}
+
+.loadMoreButton:hover,
+.loadMoreButton:focus,
+.loadMoreButton:active {
+  padding: 14px 48px; /* Сохраняем отступы при нажатии и фокусе */
+    margin-bottom: 100px;
+
 }

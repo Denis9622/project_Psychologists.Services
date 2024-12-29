@@ -1,135 +1,145 @@
 .card {
   display: flex;
-  width: 888px;
-  border: 1px solid rgba(218, 221, 225, 1);
-  border-radius: 20px;
-  overflow: hidden;
+  align-items: flex-start;
+  border: 1px solid rgba(251, 251, 251, 1);
   padding: 24px;
+  border-radius: 24px;
+  margin-bottom: 32px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-.image {
-  width: 292px;
-  height: 320px;
-  object-fit: cover;
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border: solid 2px rgba(84, 190, 150, 0.2);
+  width: 120px;
+  height: 120px;
+  border-radius: 30px;
   margin-right: 24px;
 }
 
-.content {
+.avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 15px;
+}
+
+.onlineIndicator {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 14px;
+  height: 14px;
+  background-color: rgba(56, 205, 62, 1);
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
   flex: 1;
 }
 
-.header {
+.headerRow {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  flex-wrap: nowrap; /* Убираем перенос строк */
+  gap: 28px;
+}
+
+.titleAndName {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 16px;
+  color: rgba(138, 138, 137, 1);
+  margin: 0;
 }
 
 .name {
-  font-size: 20px;
   font-weight: 600;
-  line-height: 1.33;
-  margin-bottom: 8px;
-}
-
-.priceContainer {
-  display: flex;
-  align-items: center;
-}
-
-.price {
-  font-size: 18px;
-  font-weight: bold;
-  color: rgba(16, 24, 40, 1);
-  margin-right: 8px;
-}
-
-.heartIcon {
-  width: 16px;
-  height: 16px;
-  cursor: pointer; 
-  transition: fill 0.3s ease;
-}
-/* Стиль для активной иконки */
-.favorite {
-  color: rgba(228, 72, 72, 1); /* Задаём красный цвет */
-  fill: rgba(228, 72, 72, 1); /* Для SVG, если он поддерживает fill */
-}
-
-.ratingContainer {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  margin-bottom: 24px;
+  font-size: 20px;
+  color: rgba(25, 26, 21, 1);
+  margin: 0;
 }
 
 .rating {
-  font-size: 16px;
-  font-weight: 400;
-  color: rgba(16, 24, 40, 1);
-  margin-right: 12px;
-}
-
-.mapIcon {
-  width: 16px;
-  height: 16px;
-}
-
-.city {
-  font-size: 16px;
-  font-weight: 400;
-  color: rgba(16, 24, 40, 1);
-}
-
-.description {
-  font-size: 16px;
-  font-weight: 400;
-  color: rgba(71, 84, 103, 1);
-  margin-bottom: 24px;
-}
-
-.filterSlots {
   display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 24px;
-}
-
-.filterSlot {
-  display: flex;
-  align-items: center;
-  background-color: rgba(242, 244, 247, 1);
-  border-radius: 100px;
-    padding: 12px 18px 12px 18px;
-
-}
-
-.filterIcon {
-  width: 20px;
-  height: 20px;
-}
-
-.filterLabel {
-  margin-left: 8px;
-  font-size: 16px;
+  align-items: center; /* Центрируем содержимое по вертикали */
+  gap: 28px;
   font-weight: 500;
-  color: rgba(16, 24, 40, 1);
+  line-height: 24px;
+  margin-left: auto;
+  color: rgba(25, 26, 21, 1);
 }
 
-.button {
-  display: block;
-  width: 100%;
-  max-width: 166px;
-  padding: 16px 40px;
-  background-color: #e44848;
-  color: white;
+.price {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+.favoriteButton {
+  font-size: 26px;
+  background: none;
   border: none;
-  border-radius: 200px;
   cursor: pointer;
-  font-weight: 500;
-  font-size: 16px;
-  transition: background-color 0.3s;
+  color: rgba(25, 26, 21, 1);
+  transition: color 0.3s;
 }
 
-.button:hover {
-  background-color: #4d0707;
+.favoriteButton.favoriteActive {
+  color: #d84343; /* Красный цвет для активного избранного */
+}
+
+.flexWrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.flexWrap p {
+  margin: 0;
+  background-color: rgba(243, 243, 243, 1);
+  color: rgba(25, 26, 21, 1);
+  border-radius: 24px;
+  padding: 8px 16px;
+}
+
+.spanp {
+  color: rgba(138, 138, 137, 1);
+}
+
+.about {
+  color: rgba(25, 26, 21, 0.5);
+  margin-bottom: 14px;
+}
+
+.readMore {
+  width: 82px;
+  font-weight: 500;
+  font-size: 16px;
+  color: rgba(25, 26, 21, 1);
+  text-decoration: underline;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.readMore:hover {
+  color: #0056b3;
+}
+
+.message {
+  color: red;
+  margin-top: 10px;
 }

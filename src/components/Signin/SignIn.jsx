@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { signInSchema } from './../Validation/validationSchema';
-import { login } from './../Auth/auth';
+import { signInSchema } from '../Validation/validationSchema';
+import { login } from '../Auth/auth';
 import styles from './SignIn.module.css';
 
 function SignIn({ onClose }) {
   const [showPassword, setShowPassword] = useState(false);
+  const [message, setMessage] = useState(''); // Состояние для сообщения
 
   // Состояние для управления видимостью пароля
   const {
@@ -26,8 +27,10 @@ function SignIn({ onClose }) {
     try {
       const user = await login(data.email, data.password);
       console.log('User signed in:', user);
+      setMessage('Login successful!');
     } catch (error) {
       console.error('Error signing in user:', error);
+      setMessage('Error signing in');
     }
   };
 
@@ -124,6 +127,7 @@ function SignIn({ onClose }) {
           <button type="submit" className={styles.submitButton}>
             Log In
           </button>
+          {message && <p className={styles.message}>{message}</p>}
         </form>
       </div>
     </div>
