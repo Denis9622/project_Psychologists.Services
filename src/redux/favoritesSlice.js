@@ -1,12 +1,14 @@
+// src/redux/favoritesSlice.js
+
 import { createSlice } from '@reduxjs/toolkit';
 
-// Функция для загрузки избранных психологов из localStorage
+// Загрузка избранных товаров из localStorage
 const loadFavorites = () => {
   const savedFavorites = localStorage.getItem('favorites');
   return savedFavorites ? JSON.parse(savedFavorites) : [];
 };
 
-// Функция для сохранения избранных психологов в localStorage
+// Сохранение избранных товаров в localStorage
 const saveFavorites = favorites => {
   localStorage.setItem('favorites', JSON.stringify(favorites));
 };
@@ -14,7 +16,7 @@ const saveFavorites = favorites => {
 const favoritesSlice = createSlice({
   name: 'favorites',
   initialState: {
-    list: loadFavorites(), // Инициализируем из localStorage
+    list: loadFavorites(), // Загружаем список избранных
   },
   reducers: {
     addToFavorites: (state, action) => {
@@ -24,7 +26,8 @@ const favoritesSlice = createSlice({
       );
       if (!isAlreadyFavorite) {
         state.list.push(psychologist);
-        saveFavorites(state.list); // Сохраняем обновленный список в localStorage
+        saveFavorites(state.list); // Обновляем localStorage
+        console.log('Psychologist added to favorites: ', psychologist);
       }
     },
     removeFromFavorites: (state, action) => {
@@ -32,7 +35,8 @@ const favoritesSlice = createSlice({
       state.list = state.list.filter(
         psychologist => psychologist.id !== psychologistId
       );
-      saveFavorites(state.list); // Сохраняем обновленный список в localStorage
+      saveFavorites(state.list); // Обновляем localStorage
+      console.log('Psychologist removed from favorites: ', psychologistId);
     },
   },
 });

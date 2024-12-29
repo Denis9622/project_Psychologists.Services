@@ -4,19 +4,24 @@ import { getDatabase, ref, get } from 'firebase/database';
 
 // Конфигурация Firebase
 const firebaseConfig = {
-  apiKey: 'AIzaSyD_Si3_XQe2oWHzfFHPcTHiH2oKaAUrK0M',
-  authDomain: 'apppp-aac4f.firebaseapp.com',
-  databaseURL:
-    'https://apppp-aac4f-default-rtdb.europe-west1.firebasedatabase.app',
-  projectId: 'apppp-aac4f',
-  storageBucket: 'apppp-aac4f.firebasestorage.app',
-  messagingSenderId: '48696766039',
-  appId: '1:48696766039:web:23440fbd871fa236137d12',
+  apiKey: 'AIzaSyBP9QhM_amUbPYEYQ7qLOgY322beDwybqc',
+  authDomain: 'psychologistsapp.firebaseapp.com',
+  databaseURL: 'https://psychologistsapp-default-rtdb.firebaseio.com',
+  projectId: 'psychologistsapp',
+  storageBucket: 'psychologistsapp.firebasestorage.app',
+  messagingSenderId: '1026108303745',
+  appId: '1:1026108303745:web:7bb3b0c0751fb6f4bce080',
 };
 
 // Инициализация Firebase
+console.log('Initializing Firebase...');
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app); // Инициализация службы аутентификации
+console.log('Firebase app initialized: ', app);
+
+// Инициализация Auth и Database
+const auth = getAuth(app);
+console.log('Firebase Auth initialized: ', auth);
 const db = getDatabase(app);
+console.log('Firebase Database initialized: ', db);
 
 export { db, ref, get, auth };

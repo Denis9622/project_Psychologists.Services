@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { signUpSchema } from './../Validation/validationSchema';
-import { register as registerUser } from './../Auth/auth'; // Импортируем функцию регистрации
+import { register as registerUser } from './../Auth/auth'; // Импорт функции регистрации
 import styles from './SignUp.module.css';
+import { useAuth } from './../utilits/authContext'; // Импортируем хук useAuth
 
 function SignUp({ onClose }) {
-  const [showPassword, setShowPassword] = useState(false); // Состояние для управления видимостью пароля
-  const [message, setMessage] = useState(''); // Состояние для сообщения
+  const { setCurrentUser } = useAuth(); // Получаем метод для обновления состояния пользователя
+  const [showPassword, setShowPassword] = useState(false); // Состояние видимости пароля
+  const [message, setMessage] = useState(''); // Состояние для уведомлений
 
   const {
     register,
@@ -17,23 +19,29 @@ function SignUp({ onClose }) {
     resolver: yupResolver(signUpSchema),
   });
 
-  // Переключение видимости пароля
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
   const onSubmit = async data => {
+    console.log('SignUp form submitted with data: ', data); // Логируем данные формы
     try {
-      const user = await registerUser(data.email, data.password); // Используем функцию регистрации
-      console.log('User registered:', user);
-      setMessage('Registration successful!');
+      const user = await registerUser(data.email, data.password);
+      console.log('User registered successfully: ', user); // Логируем успешную регистрацию
+      setCurrentUser(user); // Обновляем состояние пользователя
+      setMessage('Регистрация успешна! Добро пожаловать!');
     } catch (error) {
-      console.error('Error registering new user:', error);
-      setMessage('Error registering new user');
+      console.error('Error registering user: ', error); // Логируем ошибку
+      if (error.code) {
+        console.error('Error code:', error.code);
+      }
+      if (error.message) {
+        console.error('Error message:', error.message);
+      }
+      setMessage('Ошибка регистрации. Попробуйте снова.');
     }
   };
 
-  // Закрытие модального окна по нажатию на клавишу Esc
   useEffect(() => {
     const handleEsc = event => {
       if (event.key === 'Escape') {
@@ -53,15 +61,14 @@ function SignUp({ onClose }) {
           ×
         </button>
         <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-          <h2 className={styles.h2class}>Registration</h2>
+          <h2 className={styles.h2class}>Регистрация</h2>
           <p className={styles.textclass}>
-            Thank you for your interest in our platform! In order to register,
-            we need some information. Please provide us with the following
-            information.
+            Спасибо за интерес к нашей платформе! Пожалуйста, заполните форму
+            ниже для регистрации.
           </p>
           <input
             type="text"
-            placeholder="Name"
+            placeholder="Имя"
             className={styles.input}
             {...register('name')}
           />
@@ -79,14 +86,14 @@ function SignUp({ onClose }) {
 
           <div className={styles.passwordWrapper}>
             <input
-              type={showPassword ? 'text' : 'password'} // Изменяем тип ввода пароля в зависимости от состояния showPassword
-              placeholder="Password"
+              type={showPassword ? 'text' : 'password'}
+              placeholder="Пароль"
               className={styles.input}
               {...register('password')}
             />
             <span
               onClick={togglePasswordVisibility}
-              className={styles.passwordToggleIcon} // Добавляем иконку для переключения видимости пароля
+              className={styles.passwordToggleIcon}
             >
               {showPassword ? (
                 <svg
@@ -121,7 +128,7 @@ function SignUp({ onClose }) {
                     stroke="#2F2F2F"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12c1.292 4.338 5.31 7.5 10.066 7.5.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65A3 3 0 1 0 9.88 9.879m4.242 4.242L9.881 9.88"
+                    d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12c1.292 4.338 5.31 7.5 10.066 7.5.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 0 1-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65A3 3 0 1 0 9.88 9.879m4.242 4.242L9.881 9.88"
                   />
                 </svg>
               )}
@@ -132,8 +139,9 @@ function SignUp({ onClose }) {
           )}
 
           <button type="submit" className={styles.submitButton}>
-            Sign Up
+            Зарегистрироваться
           </button>
+
           {message && <p className={styles.message}>{message}</p>}
         </form>
       </div>
