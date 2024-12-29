@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
 import { getCurrentUser, logout } from '../Auth/auth';
-import { NavLink, useLocation } from 'react-router-dom';
-import SignIn from '../SignIn/Signin';
+import { NavLink } from 'react-router-dom';
+import SignIn from '../Signin/SignIn';
 import SignUp from '../SignUp/SignUp';
 import styles from './Header.module.css';
 
 function Header() {
-  const location = useLocation();
   const [user, setUser] = useState(null);
   const [isSignUpOpen, setSignUpOpen] = useState(false);
   const [isSignInOpen, setSignInOpen] = useState(false);
@@ -15,10 +14,7 @@ function Header() {
     const unsubscribe = getCurrentUser(user => {
       setUser(user);
     });
-
-    if (typeof unsubscribe === 'function') {
-      return () => unsubscribe();
-    }
+    return () => unsubscribe && unsubscribe();
   }, []);
 
   const handleOpenSignUp = () => setSignUpOpen(true);
@@ -32,50 +28,38 @@ function Header() {
       <header className={styles.header}>
         <h1 className={styles.logo}>
           <a href="/">
-            <span className={styles.logospan}>psychologists.</span>services
+            <span>psychologists.</span>services
           </a>
         </h1>
 
         <nav className={styles.nav}>
           <ul className={styles.ulclass}>
-            <li className={styles.link_li}>
-              <NavLink
-                to="/"
-                className={`${styles.navLink} ${
-                  location.pathname === '/' ? styles.active : ''
-                }`}
-              >
+            <li>
+              <NavLink to="/" className={styles.navLink}>
                 Home
               </NavLink>
             </li>
-            <li className={styles.link_li}>
-              <NavLink
-                to="/catalog"
-                className={`${styles.navLink} ${
-                  location.pathname === '/catalog' ? styles.active : ''
-                }`}
-              >
+            <li>
+              <NavLink to="/catalog" className={styles.navLink}>
                 Psychologists
               </NavLink>
             </li>
             {user && (
-              <li className={styles.link_li}>
-                <NavLink
-                  to="/favorites"
-                  className={`${styles.navLink} ${
-                    location.pathname === '/favorites' ? styles.active : ''
-                  }`}
-                >
+              <li>
+                <NavLink to="/favorites" className={styles.navLink}>
                   Favorites
                 </NavLink>
               </li>
             )}
           </ul>
         </nav>
+
         <div className={styles.userAuth}>
           {user ? (
             <>
-              <span className={styles.username}>{user.email}</span>
+              <span className={styles.username}>
+                {user.displayName || user.email}
+              </span>
               <button onClick={logout} className={styles.linkAuth}>
                 Logout
               </button>
@@ -83,10 +67,10 @@ function Header() {
           ) : (
             <>
               <button onClick={handleOpenSignIn} className={styles.linkAuth}>
-                <p className={styles.signup}>Log In</p>
+                Log In
               </button>
               <button onClick={handleOpenSignUp} className={styles.linkAuth}>
-                <p className={styles.registration}>Registration</p>
+                Registration
               </button>
             </>
           )}
