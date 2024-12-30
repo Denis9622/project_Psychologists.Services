@@ -7,6 +7,7 @@ import {
 } from '../../redux/favoritesSlice';
 import Card from '../../components/Card/Card';
 import Header from '../../components/Header/Header';
+import Filter from '../../components/Filters/Filters';
 import styles from './CatalogPage.module.css';
 
 function CatalogPage() {
@@ -19,6 +20,7 @@ function CatalogPage() {
   const favorites = useSelector(state => state.favorites.list);
 
   const [visibleCount, setVisibleCount] = useState(3); // Показывать сначала 3 карточки
+  const [sortOption, setSortOption] = useState('alphabetical-asc'); // Начальный вариант сортировки
 
   useEffect(() => {
     dispatch(fetchPsychologistsAsync()); // Загружаем данные из Firebase
@@ -37,6 +39,29 @@ function CatalogPage() {
     }
   };
 
+  const handleSortChange = event => {
+    setSortOption(event.target.value);
+  };
+
+  const sortedPsychologists = psychologists.slice().sort((a, b) => {
+    switch (sortOption) {
+      case 'alphabetical-asc':
+        return a.name.localeCompare(b.name);
+      case 'alphabetical-desc':
+        return b.name.localeCompare(a.name);
+      case 'price-asc':
+        return a.price_per_hour - b.price_per_hour;
+      case 'price-desc':
+        return b.price_per_hour - a.price_per_hour;
+      case 'popularity-asc':
+        return a.rating - b.rating;
+      case 'popularity-desc':
+        return b.rating - a.rating;
+      default:
+        return 0;
+    }
+  });
+
   if (loading) {
     return <p>Загрузка...</p>;
   }
@@ -49,10 +74,11 @@ function CatalogPage() {
     <div>
       <Header />
       <div className={styles.catalogContainer}>
+        <Filter sortOption={sortOption} handleSortChange={handleSortChange} />
         <div className={styles.catalogList}>
           <div className={styles.cardList}>
-            {psychologists.length > 0 ? (
-              psychologists
+            {sortedPsychologists.length > 0 ? (
+              sortedPsychologists
                 .slice(0, visibleCount)
                 .map(psychologist => (
                   <Card
@@ -70,7 +96,7 @@ function CatalogPage() {
           </div>
 
           {/* Кнопка Load More */}
-          {visibleCount < psychologists.length && (
+          {visibleCount < sortedPsychologists.length && (
             <button onClick={loadMore} className={styles.loadMoreButton}>
               Load More
             </button>

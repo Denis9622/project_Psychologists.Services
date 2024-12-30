@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import styles from './CamperDetailPage.module.css';
 import { fetchCamperDetails } from '../../redux/vehiclesSlice';
-import Loader from '../../components/Loader/Loader';
+// import Loader from '../../components/Loader/Loader';
 import Header from '../../components/Header/Header';
 
 function CamperDetailPage() {
@@ -11,7 +11,7 @@ function CamperDetailPage() {
   const dispatch = useDispatch();
   const {
     camperDetails: camper,
-    loading,
+    // loading,
     error,
   } = useSelector(state => state.vehicles);
   const [activeTab, setActiveTab] = useState('features');
@@ -20,7 +20,7 @@ function CamperDetailPage() {
     dispatch(fetchCamperDetails(id));
   }, [dispatch, id]);
 
-  if (loading) return <Loader />;
+  // if (loading) return <Loader />;
   if (error) return <div>Error: {error}</div>;
   if (!camper) return <div>Camper not found</div>;
 

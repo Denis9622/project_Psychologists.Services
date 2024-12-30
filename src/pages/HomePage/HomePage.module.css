@@ -5,7 +5,6 @@
 
 .heroContent {
   margin: 126px 125px 140px 128px;
-
   color: #f7f7f7;
   max-width: 595px;
 }
@@ -29,22 +28,26 @@
 }
 
 .button {
-  display: block;
+  display: flex;
+  align-items: center; /* Выравниваем содержимое по вертикали */
+  justify-content: center; /* Выравниваем содержимое по горизонтали */
   width: 240px;
-  padding: 16px 48px;
+  padding: 18px 50px;
   border-radius: 200px;
   background-color: rgba(52, 112, 255, 1);
   color: #ffffff;
   border: none;
   cursor: pointer;
-  font-weight: 600;
-  font-size: 16px;
-  text-align: center;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
   transition: background-color 0.3s;
-  box-sizing: border-box; /* Новый стиль */
 }
 
-.button:hover {
+.button:hover,
+.button:focus,
+.button:active {
+  padding: 18px 50px;
   background-color: #d84343;
 }
 
@@ -54,6 +57,80 @@
   color: #3470ff;
 }
 
-/* .image{
+.icon {
+  margin-left: 10px; /* Отступ слева от текста кнопки */
+  width: 18px;
+  height: 18px;
+}
 
-} */
+.imageContainer {
+  position: relative; /* Устанавливаем позицию как относительную для родителя */
+}
+
+.label {
+  position: absolute; /* Устанавливаем позицию как абсолютную для контейнера */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 20px; /* Скругление углов */
+  text-align: center; /* Центрируем текст */
+}
+
+.label1 {
+  width: 311px; /* Ширина контейнера */
+  height: 118px; /* Высота контейнера */
+  top: 333px;
+  right: 254px;
+  border-radius: 20px; /* Скругление углов */
+  background-color: #3470ff;
+}
+
+.label2 {
+  width: 40px;
+  height: 40px;
+  top: 185px;
+  right: 450px;
+  border-radius: 10px; /* Скругление углов */
+  background-color: #54be96;
+  transform: rotate(-15deg); /* Ротация */
+}
+
+.label3 {
+  width: 60px;
+  height: 60px;
+  top: 38px;
+  left: 449px;
+  border-radius: 10px; /* Скругление углов */
+  background-color: #fbc75e;
+  transform: rotate(+15deg); /* Ротация */
+}
+
+.checkmark {
+  padding: 17px;
+  background-color: #f7f7f7;
+  border-radius: 12px;
+}
+
+.labelText {
+  color: rgba(251, 251, 251, 0.5);
+  font-size: 14px;
+  margin-bottom: 8px;
+  line-height: 17px;
+}
+
+.number {
+  font-size: 24px;
+  font-weight: 700;
+  color: #fbfbfb;
+}
+
+.column {
+  text-align: left;
+  margin-left: 16px;
+}
+.checkmark13 {
+  width: 30px;
+  height: 30px;
+}

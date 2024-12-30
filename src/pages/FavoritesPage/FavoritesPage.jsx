@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header/Header';
+import Filter from '../../components/Filters/Filters';
 import styles from './FavoritesPage.module.css';
 
 function FavoritesPage() {
@@ -9,10 +10,34 @@ function FavoritesPage() {
   const { list: favorites } = useSelector(state => state.favorites);
 
   const [visibleCount, setVisibleCount] = useState(3); // Показывать сначала 3 карточки
+  const [sortOption, setSortOption] = useState('alphabetical-asc'); // Начальный вариант сортировки
 
   const loadMore = () => {
     setVisibleCount(prevCount => prevCount + 3); // Увеличиваем количество отображаемых карточек на 3
   };
+
+  const handleSortChange = event => {
+    setSortOption(event.target.value);
+  };
+
+  const sortedFavorites = favorites.slice().sort((a, b) => {
+    switch (sortOption) {
+      case 'alphabetical-asc':
+        return a.name.localeCompare(b.name);
+      case 'alphabetical-desc':
+        return b.name.localeCompare(a.name);
+      case 'price-asc':
+        return a.price_per_hour - b.price_per_hour;
+      case 'price-desc':
+        return b.price_per_hour - a.price_per_hour;
+      case 'popularity-asc':
+        return a.rating - b.rating;
+      case 'popularity-desc':
+        return b.rating - a.rating;
+      default:
+        return 0;
+    }
+  });
 
   if (favorites.length === 0) {
     return (
@@ -29,9 +54,9 @@ function FavoritesPage() {
     <div>
       <Header />
       <div className={styles.favorites}>
-        <h1>Your Favorite Psychologists</h1>
+        <Filter sortOption={sortOption} handleSortChange={handleSortChange} />
         <div className={styles.favoritesList}>
-          {favorites.slice(0, visibleCount).map(favorite => (
+          {sortedFavorites.slice(0, visibleCount).map(favorite => (
             <div key={favorite.id} className={styles.card}>
               <div className={styles.imageContainer}>
                 <img
@@ -70,7 +95,7 @@ function FavoritesPage() {
         </div>
 
         {/* Кнопка Load More */}
-        {visibleCount < favorites.length && (
+        {visibleCount < sortedFavorites.length && (
           <button onClick={loadMore} className={styles.loadMoreButton}>
             Load More
           </button>

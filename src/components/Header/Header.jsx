@@ -28,7 +28,7 @@ function Header() {
       <header className={styles.header}>
         <h1 className={styles.logo}>
           <a href="/">
-            <span>psychologists.</span>services
+            <span className={styles.logospan}>psychologists.</span>services
           </a>
         </h1>
 

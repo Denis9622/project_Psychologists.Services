@@ -6,6 +6,8 @@
   border-radius: 24px;
   margin-bottom: 32px;
   background-color: #fff;
+    margin: 0 128px;
+
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
@@ -165,3 +167,8 @@
     margin-bottom: 100px;
 
 }
+
+
+
+
+/* Остальные стили остаются такими же, как и раньше */
