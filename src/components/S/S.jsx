@@ -73,11 +73,7 @@ function SignIn({ onClose }) {
               className={styles.passwordToggle}
             >
               <img
-                src={
-                  showPassword
-                    ? '../../../public/images/eye.svg'
-                    : '../../../public/images/eye-off.svg'
-                }
+                src={showPassword ? '/images/eye.svg' : '/images/eye-off.svg'}
                 alt="Toggle visibility"
                 className={styles.checkmark13}
               />
