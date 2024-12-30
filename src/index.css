@@ -9,7 +9,7 @@ body {
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
-  letter-spacing: -0.01em; /* -1% letter spacing */
+  letter-spacing: -0.01em; 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -17,7 +17,7 @@ body {
 }
 
 body {
-  max-width: 1440px; /* Установите максимальную ширину контента */
+  max-width: 1440px; 
   margin: 0 auto;
   background-size: cover;
   background-position: center;

@@ -23,10 +23,10 @@ function SignUp({ onClose }) {
 
   const onSubmit = async data => {
     try {
-      const user = await registerUser(data.email, data.password, data.name); // Передаем name
-      setCurrentUser(user); // Обновляем состояние пользователя
+      const user = await registerUser(data.email, data.password, data.name); 
+      setCurrentUser(user); 
       setMessage('Регистрация успешна! Добро пожаловать!');
-      onClose(); // Закрываем модальное окно
+      onClose(); 
     } catch (error) {
       console.error('Ошибка регистрации: ', error);
       setMessage('Ошибка регистрации. Попробуйте снова.');

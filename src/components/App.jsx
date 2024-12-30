@@ -10,10 +10,8 @@ function App() {
     <Routes>
       <Route path="/" element={<Container />} />
       <Route path="/catalog" element={<CatalogPage />} />
-
       <Route path="/signin" element={<SignIn />} />
       <Route path="/signup" element={<SignUp />} />
-
       <Route path="/favorites" element={<FavoritesPage />} />
     </Routes>
   );

@@ -19,15 +19,15 @@ function CatalogPage() {
   } = useSelector(state => state.psychologists);
   const favorites = useSelector(state => state.favorites.list);
 
-  const [visibleCount, setVisibleCount] = useState(3); // Показывать сначала 3 карточки
-  const [sortOption, setSortOption] = useState('alphabetical-asc'); // Начальный вариант сортировки
+  const [visibleCount, setVisibleCount] = useState(3); 
+  const [sortOption, setSortOption] = useState('alphabetical-asc'); 
 
   useEffect(() => {
-    dispatch(fetchPsychologistsAsync()); // Загружаем данные из Firebase
+    dispatch(fetchPsychologistsAsync());
   }, [dispatch]);
 
   const loadMore = () => {
-    setVisibleCount(prevCount => prevCount + 3); // Увеличиваем количество отображаемых карточек на 3
+    setVisibleCount(prevCount => prevCount + 3); 
   };
 
   const toggleFavorite = psychologist => {
@@ -95,7 +95,6 @@ function CatalogPage() {
             )}
           </div>
 
-          {/* Кнопка Load More */}
           {visibleCount < sortedPsychologists.length && (
             <button onClick={loadMore} className={styles.loadMoreButton}>
               Load More

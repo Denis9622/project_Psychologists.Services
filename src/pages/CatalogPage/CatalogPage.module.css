@@ -8,8 +8,8 @@
 .cardList {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px; /* Добавим отступы между карточками */
-  justify-content: center; /* Центрируем элементы */
+  gap: 16px;
+  justify-content: center;
 }
 
 .loadMoreButton {
@@ -35,36 +35,32 @@
 .loadMoreButton:hover,
 .loadMoreButton:focus,
 .loadMoreButton:active {
-  padding: 14px 48px; /* Сохраняем отступы при нажатии и фокусе */
+  padding: 14px 48px;
   margin-bottom: 100px;
 }
 
-/* Медиазапросы для адаптивности */
-
-/* Для планшетов */
 @media (max-width: 1024px) {
   .cardList {
-    gap: 12px; /* Уменьшаем расстояние между карточками */
+    gap: 12px;
   }
 
   .loadMoreButton {
-    max-width: 160px; /* Уменьшаем максимальную ширину кнопки */
-    font-size: 14px; /* Уменьшаем размер шрифта */
+    max-width: 160px;
+    font-size: 14px;
     padding: 12px 40px;
   }
 }
 
-/* Для мобильных устройств */
 @media (max-width: 768px) {
   .cardList {
-    gap: 10px; /* Уменьшаем расстояние между карточками */
-    justify-content: flex-start; /* Переводим карточки в левый угол */
+    gap: 10px;
+    justify-content: flex-start;
   }
 
   .loadMoreButton {
-    max-width: 140px; /* Еще меньше кнопка */
+    max-width: 140px;
     font-size: 14px;
     padding: 10px 30px;
-    margin-bottom: 60px; /* Уменьшаем отступ снизу */
+    margin-bottom: 60px;
   }
 }

@@ -1,12 +1,9 @@
 import { ref, get } from 'firebase/database';
-import { db } from '../../services/firebase.jsx'; 
+import { db } from '../../services/firebase.jsx';
 
 export const fetchPsychologists = async () => {
   try {
-    console.log('Initializing database reference...');
     const psychologistsRef = ref(db, 'psychologists');
-
-    console.log('Fetching data from Firebase...');
     const snapshot = await get(psychologistsRef);
 
     if (snapshot.exists()) {
@@ -16,14 +13,11 @@ export const fetchPsychologists = async () => {
         ...data[key],
       }));
 
-      console.log('Fetched data from Firebase:', psychologists);
       return psychologists;
     }
 
-    console.log('No data found in Firebase');
     return [];
   } catch (error) {
-    console.error('Error fetching psychologists:', error.message, error);
     throw new Error('Error loading psychologists');
   }
 };

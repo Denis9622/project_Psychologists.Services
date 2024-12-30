@@ -1,14 +1,11 @@
-// src/redux/favoritesSlice.js
 
 import { createSlice } from '@reduxjs/toolkit';
 
-// Загрузка избранных товаров из localStorage
 const loadFavorites = () => {
   const savedFavorites = localStorage.getItem('favorites');
   return savedFavorites ? JSON.parse(savedFavorites) : [];
 };
 
-// Сохранение избранных товаров в localStorage
 const saveFavorites = favorites => {
   localStorage.setItem('favorites', JSON.stringify(favorites));
 };
@@ -16,7 +13,7 @@ const saveFavorites = favorites => {
 const favoritesSlice = createSlice({
   name: 'favorites',
   initialState: {
-    list: loadFavorites(), // Загружаем список избранных
+    list: loadFavorites(), 
   },
   reducers: {
     addToFavorites: (state, action) => {
@@ -26,7 +23,7 @@ const favoritesSlice = createSlice({
       );
       if (!isAlreadyFavorite) {
         state.list.push(psychologist);
-        saveFavorites(state.list); // Обновляем localStorage
+        saveFavorites(state.list); 
         console.log('Psychologist added to favorites: ', psychologist);
       }
     },
@@ -35,7 +32,7 @@ const favoritesSlice = createSlice({
       state.list = state.list.filter(
         psychologist => psychologist.id !== psychologistId
       );
-      saveFavorites(state.list); // Обновляем localStorage
+      saveFavorites(state.list); 
       console.log('Psychologist removed from favorites: ', psychologistId);
     },
   },

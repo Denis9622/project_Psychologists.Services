@@ -2,7 +2,6 @@ import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import { getDatabase, ref, get } from 'firebase/database';
 
-// Конфигурация Firebase
 const firebaseConfig = {
   apiKey: 'AIzaSyBP9QhM_amUbPYEYQ7qLOgY322beDwybqc',
   authDomain: 'psychologistsapp.firebaseapp.com',
@@ -13,10 +12,8 @@ const firebaseConfig = {
   appId: '1:1026108303745:web:7bb3b0c0751fb6f4bce080',
 };
 
-// Инициализация Firebase
 const app = initializeApp(firebaseConfig);
 
-// Инициализация Auth и Database
 const auth = getAuth(app);
 const db = getDatabase(app);
 
