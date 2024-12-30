@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getCurrentUser, logout } from '../Auth/auth';
 import { NavLink } from 'react-router-dom';
-import SignIn from './../SignIn/SignIn';
+import SignIn from '../S/S';
 import SignUp from '../SignUp/SignUp';
 import styles from './Header.module.css';
 
