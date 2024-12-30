@@ -1,3 +1,4 @@
+/* SignIn.module.css */
 .modal {
   position: fixed;
   top: 0;
@@ -18,8 +19,11 @@
   border-radius: 30px; /* Закругление углов */
   position: relative;
   z-index: 1001;
+  max-width: 90%; /* Ограничиваем ширину на мобильных устройствах */
+  box-sizing: border-box;
 }
 
+/* Кнопка закрытия */
 .closeButton {
   position: absolute;
   top: 20px;
@@ -41,12 +45,14 @@
   line-height: 48px;
   letter-spacing: -0.02em;
   margin-bottom: 20px;
+  text-align: center; /* Центрируем заголовок */
 }
 
 .textclass {
   max-width: 438px;
   color: rgba(25, 26, 21, 0.5);
   margin-bottom: 40px;
+  text-align: center; /* Центрируем текст */
 }
 
 .input::placeholder {
@@ -56,9 +62,9 @@
 .passwordWrapper {
   position: relative;
   width: 100%;
-  display: flex; /* Используем flexbox для вертикального центрирования */
-  justify-content: space-between; /* Для того чтобы элементы располагались друг от друга */
-  align-items: center; /* Центрируем элементы по вертикали */
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
 }
 
 .input {
@@ -71,7 +77,6 @@
   padding-right: 30px; /* Создаем пространство для иконки */
 }
 
-
 .passwordToggle {
   position: absolute;
   right: 10px;
@@ -79,13 +84,14 @@
   transform: translateY(-50%);
   cursor: pointer;
 }
+
 .checkmark13 {
   width: 20px;
   height: 20px;
 }
 
 .passwordToggleIcon svg path {
-  stroke: rgba(25, 26, 21, 1); /* Основной цвет для иконок */
+  stroke: rgba(25, 26, 21, 1);
 }
 
 .passwordToggleIcon:hover svg path {
@@ -115,5 +121,62 @@
 .submitButton:hover,
 .submitButton:focus,
 .submitButton:active {
-  padding: 16px 0px; /* Сохраняем отступы при нажатии и фокусе */
+  padding: 16px 0px;
+}
+
+/* Адаптивные стили */
+
+/* Для планшетов */
+@media (max-width: 1024px) {
+  .modalContent {
+    width: 80%; /* Уменьшаем ширину на планшетах */
+    padding: 48px; /* Уменьшаем padding */
+  }
+
+  .h2class {
+    font-size: 32px; /* Уменьшаем размер шрифта заголовка */
+  }
+
+  .textclass {
+    max-width: 380px; /* Уменьшаем ширину текста */
+  }
+
+  .input {
+    padding: 14px; /* Уменьшаем padding в input */
+  }
+
+  .submitButton {
+    padding: 14px 0px; /* Уменьшаем padding в кнопке */
+  }
+}
+
+/* Для мобильных устройств */
+@media (max-width: 768px) {
+  .modalContent {
+    width: 90%; /* Максимальная ширина 90% экрана */
+    padding: 32px; /* Меньше padding */
+  }
+
+  .h2class {
+    font-size: 24px; /* Уменьшаем размер шрифта заголовка */
+    text-align: center; /* Центрируем заголовок */
+  }
+
+  .textclass {
+    max-width: 100%; /* Убираем ограничение ширины текста */
+    text-align: center; /* Центрируем текст */
+  }
+
+  .input {
+    padding: 12px; /* Уменьшаем padding */
+    font-size: 14px; /* Уменьшаем размер шрифта в input */
+  }
+
+  .submitButton {
+    padding: 14px 0px; /* Уменьшаем padding */
+  }
+
+  .closeButton {
+    font-size: 30px; /* Уменьшаем размер иконки закрытия */
+  }
 }

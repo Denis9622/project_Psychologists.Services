@@ -8,7 +8,6 @@
   margin-bottom: 32px;
   background-color: #fff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  /* background-color: #390c0c; */
 }
 
 .imageContainer {
@@ -205,18 +204,19 @@
 .modalCloseButton:hover {
   background-color: #3059cc;
 }
+
 .pricegreen {
   color: #38cd3e;
 }
 
-.additionalDetails {
-  /* margin-bottom: 40px; */
-}
+
+
 .review {
   display: flex;
   align-items: center;
   margin-bottom: 25px;
 }
+
 .reviewAvatar {
   display: flex;
   justify-content: center;
@@ -229,15 +229,19 @@
   border-radius: 50%;
   margin-right: 12px;
 }
+
 .reviewContent {
   flex: 1;
 }
+
 .reviewer {
   font-weight: 500;
 }
+
 .comment {
   color: rgba(25, 26, 21, 0.5);
 }
+
 .makeAppointmentButton {
   font-weight: 500;
   font-size: 16px;
@@ -249,8 +253,130 @@
   cursor: pointer;
   transition: background-color 0.3s;
 }
+
 .makeAppointmentButton:hover,
 .makeAppointmentButton:focus,
 .makeAppointmentButton:active {
   padding: 14px 32px; /* Сохраняем отступы при нажатии и фокусе */
+}
+
+/* Адаптивность для мобильных устройств (до 480px) */
+@media (max-width: 480px) {
+  .card {
+    flex-direction: column;
+    margin: 0 16px;
+    padding: 16px;
+  }
+
+  .imageContainer {
+    width: 80px;
+    height: 80px;
+    margin-right: 16px;
+  }
+
+  .avatar {
+    width: 70px;
+    height: 70px;
+  }
+
+  .details {
+    align-items: center;
+  }
+
+  .headerRow {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .rating {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-left: 0;
+  }
+
+  .titleAndName {
+    align-items: center;
+  }
+
+  .name {
+    font-size: 18px;
+  }
+
+  .price {
+    font-size: 12px;
+  }
+
+  .favoriteButton {
+    font-size: 22px;
+  }
+
+  .readMore {
+    font-size: 14px;
+    width: 70px;
+  }
+
+  .makeAppointmentButton {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}
+
+/* Адаптивность для планшетов (до 768px) */
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column;
+    margin: 0 32px;
+    padding: 20px;
+  }
+
+  .imageContainer {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+  }
+
+  .avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .details {
+    align-items: center;
+  }
+
+  .headerRow {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .rating {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .titleAndName {
+    align-items: center;
+  }
+
+  .name {
+    font-size: 18px;
+  }
+
+  .favoriteButton {
+    font-size: 24px;
+  }
+
+  .readMore {
+    font-size: 15px;
+    width: 75px;
+  }
+
+  .makeAppointmentButton {
+    padding: 14px 28px;
+    font-size: 15px;
+  }
 }

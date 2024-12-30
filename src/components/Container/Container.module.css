@@ -5,5 +5,19 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  /* background: url('/public/images/Picture.jpg') no-repeat center center/cover; */
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .container {
+    background-position: top; /* Adjust as needed */
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+  .container {
+    background-position: bottom; /* Adjust as needed */
+    padding: 20px; /* Adjust as needed */
+  }
 }

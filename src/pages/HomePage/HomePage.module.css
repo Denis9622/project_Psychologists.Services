@@ -1,6 +1,7 @@
 .hero {
   display: flex;
   align-items: center;
+  flex-direction: row; /* По умолчанию выравниваем элементы по горизонтали */
 }
 
 .heroContent {
@@ -21,7 +22,7 @@
   max-width: 510px;
   font-weight: 600;
   font-size: 18px;
-  letter-spacing: -0.02em; /* -1% letter spacing */
+  letter-spacing: -0.02em;
   line-height: 24px;
   margin-bottom: 40px;
   color: rgba(25, 26, 21, 1);
@@ -29,8 +30,8 @@
 
 .button {
   display: flex;
-  align-items: center; /* Выравниваем содержимое по вертикали */
-  justify-content: center; /* Выравниваем содержимое по горизонтали */
+  align-items: center;
+  justify-content: center;
   width: 240px;
   padding: 18px 50px;
   border-radius: 200px;
@@ -58,32 +59,31 @@
 }
 
 .icon {
-  margin-left: 10px; /* Отступ слева от текста кнопки */
+  margin-left: 10px;
   width: 18px;
   height: 18px;
 }
 
 .imageContainer {
-  position: relative; /* Устанавливаем позицию как относительную для родителя */
+  position: relative;
 }
 
 .label {
-  position: absolute; /* Устанавливаем позицию как абсолютную для контейнера */
-
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px;
-  border-radius: 20px; /* Скругление углов */
-  text-align: center; /* Центрируем текст */
+  border-radius: 20px;
+  text-align: center;
 }
 
 .label1 {
-  width: 311px; /* Ширина контейнера */
-  height: 118px; /* Высота контейнера */
+  width: 311px;
+  height: 118px;
   top: 333px;
   right: 254px;
-  border-radius: 20px; /* Скругление углов */
+  border-radius: 20px;
   background-color: #3470ff;
 }
 
@@ -92,9 +92,9 @@
   height: 40px;
   top: 185px;
   right: 450px;
-  border-radius: 10px; /* Скругление углов */
+  border-radius: 10px;
   background-color: #54be96;
-  transform: rotate(-15deg); /* Ротация */
+  transform: rotate(-15deg);
 }
 
 .label3 {
@@ -102,9 +102,9 @@
   height: 60px;
   top: 38px;
   left: 449px;
-  border-radius: 10px; /* Скругление углов */
+  border-radius: 10px;
   background-color: #fbc75e;
-  transform: rotate(+15deg); /* Ротация */
+  transform: rotate(+15deg);
 }
 
 .checkmark {
@@ -130,7 +130,124 @@
   text-align: left;
   margin-left: 16px;
 }
+
 .checkmark13 {
   width: 30px;
   height: 30px;
+}
+
+/* Медиазапросы для адаптации */
+
+/* Для планшетов */
+@media (max-width: 1024px) {
+  .hero {
+    flex-direction: column; /* Переводим элементы на вертикальное расположение */
+    align-items: center;
+  }
+
+  .heroContent {
+    margin: 80px 50px 50px 50px; /* Уменьшаем отступы */
+    text-align: center;
+  }
+
+  .heroTitle {
+    font-size: 60px; /* Уменьшаем размер шрифта */
+    line-height: 70px;
+  }
+
+  .heroText {
+    font-size: 16px; /* Уменьшаем размер шрифта */
+    max-width: 100%; /* Убираем ограничение по ширине */
+    margin-bottom: 30px;
+  }
+
+  .button {
+    width: 200px;
+    font-size: 18px;
+    padding: 15px 30px;
+  }
+
+  .imageContainer {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .label1 {
+    width: 260px;
+    height: 100px;
+    top: 250px;
+    right: 20px;
+  }
+
+  .label2 {
+    width: 35px;
+    height: 35px;
+    top: 140px;
+    right: 320px;
+  }
+
+  .label3 {
+    width: 50px;
+    height: 50px;
+    top: 20px;
+    left: 320px;
+  }
+}
+
+/* Для мобильных устройств */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .heroContent {
+    margin: 50px 20px 30px 20px; /* Уменьшаем отступы */
+  }
+
+  .heroTitle {
+    font-size: 40px; /* Уменьшаем размер шрифта */
+    line-height: 50px;
+  }
+
+  .heroText {
+    font-size: 14px; /* Уменьшаем размер шрифта */
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .button {
+    width: 180px;
+    font-size: 16px;
+    padding: 12px 25px;
+  }
+
+  .imageContainer {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .label1 {
+    width: 230px;
+    height: 90px;
+    top: 200px;
+    right: 0;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .label2 {
+    width: 30px;
+    height: 30px;
+    top: 120px;
+    right: 20px;
+  }
+
+  .label3 {
+    width: 40px;
+    height: 40px;
+    top: 10px;
+    left: 20px;
+  }
 }

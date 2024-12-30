@@ -161,5 +161,131 @@
 .loadMoreButton:hover,
 .loadMoreButton:focus,
 .loadMoreButton:active {
-  padding: 14px 48px; /* Сохраняем отступы при нажатии и фокусе */
+  padding: 14px 48px;
+  background-color: #d84343;
+}
+
+/* Медиазапросы для адаптивности */
+
+/* Для планшетов */
+@media (max-width: 1024px) {
+  .card {
+    margin: 0 50px; /* Уменьшаем отступы */
+    flex-direction: column; /* Переводим карточку на вертикальное расположение */
+    align-items: flex-start;
+  }
+
+  .imageContainer {
+    width: 100px;
+    height: 100px;
+    margin-right: 16px; /* Уменьшаем отступ между картинкой и текстом */
+  }
+
+  .avatar {
+    width: 80px; /* Уменьшаем размер аватара */
+    height: 80px;
+  }
+
+  .details {
+    flex-direction: column;
+    gap: 10px; /* Уменьшаем расстояние между элементами */
+  }
+
+  .headerRow {
+    gap: 16px; /* Уменьшаем отступы между элементами */
+  }
+
+  .title {
+    font-size: 14px; /* Уменьшаем размер шрифта */
+  }
+
+  .name {
+    font-size: 18px; /* Уменьшаем размер шрифта */
+  }
+
+  .rating {
+    gap: 16px; /* Уменьшаем отступы */
+  }
+
+  .price {
+    font-size: 12px; /* Уменьшаем размер шрифта */
+  }
+
+  .favoriteButton {
+    font-size: 24px; /* Уменьшаем размер иконки */
+  }
+
+  .flexWrap {
+    gap: 6px; /* Уменьшаем расстояние */
+  }
+
+  .readMore {
+    font-size: 14px; /* Уменьшаем размер шрифта */
+  }
+
+  .loadMoreButton {
+    max-width: 150px; /* Уменьшаем максимальную ширину */
+    padding: 12px 40px;
+  }
+}
+
+/* Для мобильных устройств */
+@media (max-width: 768px) {
+  .card {
+    margin: 0 20px; /* Уменьшаем отступы */
+    flex-direction: column; /* Карточка становится вертикальной */
+  }
+
+  .imageContainer {
+    width: 80px;
+    height: 80px;
+    margin-right: 16px;
+  }
+
+  .avatar {
+    width: 60px; /* Уменьшаем размер аватара */
+    height: 60px;
+  }
+
+  .details {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .headerRow {
+    gap: 12px;
+  }
+
+  .title {
+    font-size: 12px; /* Уменьшаем размер шрифта */
+  }
+
+  .name {
+    font-size: 16px; /* Уменьшаем размер шрифта */
+  }
+
+  .rating {
+    gap: 12px;
+  }
+
+  .price {
+    font-size: 12px;
+  }
+
+  .favoriteButton {
+    font-size: 22px;
+  }
+
+  .flexWrap {
+    gap: 4px;
+  }
+
+  .readMore {
+    font-size: 12px;
+  }
+
+  .loadMoreButton {
+    max-width: 140px;
+    padding: 12px 35px;
+  }
 }

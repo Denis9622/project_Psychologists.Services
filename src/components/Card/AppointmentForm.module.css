@@ -8,13 +8,15 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
   border-radius: 30px;
+  /* Адаптивность для планшетов и мобильных устройств */
+  max-width: 100%;
 }
 
 .h2class {
   font-weight: 500;
   font-size: 40px;
   line-height: 48px;
-  letter-spacing: -0.02em; /* -1% letter spacing */
+  letter-spacing: -0.02em;
   margin-bottom: 20px;
   text-align: center;
 }
@@ -95,6 +97,60 @@
 .submitButton:hover,
 .submitButton:focus,
 .submitButton:active {
-  padding: 16px; /* Сохраняем отступы при нажатии и фокусе */
+  padding: 16px;
   background-color: #0056b3;
+}
+
+/* Адаптивность для мобильных устройств (ширина экрана до 480px) */
+@media (max-width: 480px) {
+  .formContainer {
+    padding: 24px; /* Уменьшаем отступы */
+    width: 100%; /* Ширина 100% для мобильных устройств */
+  }
+
+  .h2class {
+    font-size: 28px; /* Уменьшаем размер шрифта заголовка */
+    line-height: 36px;
+  }
+
+  .textclass {
+    font-size: 12px; /* Уменьшаем размер шрифта текста */
+  }
+
+  .input {
+    padding: 12px; /* Увеличиваем отступы внутри полей ввода */
+    font-size: 14px; /* Уменьшаем шрифт в полях ввода */
+  }
+
+  .submitButton {
+    padding: 14px; /* Уменьшаем отступы кнопки */
+    font-size: 14px; /* Уменьшаем размер шрифта кнопки */
+  }
+}
+
+/* Адаптивность для планшетов (ширина экрана до 768px) */
+@media (max-width: 768px) {
+  .formContainer {
+    padding: 32px; /* Уменьшаем отступы */
+    width: 100%; /* Ширина 100% для планшетов */
+  }
+
+  .h2class {
+    font-size: 32px; /* Уменьшаем размер шрифта заголовка */
+    line-height: 40px;
+  }
+
+  .textclass {
+    font-size: 14px; /* Уменьшаем размер шрифта для текста */
+  }
+
+  .input {
+    padding: 12px; /* Увеличиваем отступы в полях ввода */
+    font-size: 14px; /* Уменьшаем размер шрифта в полях */
+  }
+
+  .submitButton {
+    padding: 16px; /* Поддерживаем отступы кнопки */
+    font-size: 14px; /* Уменьшаем шрифт кнопки */
+  }
 }

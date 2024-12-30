@@ -1,4 +1,3 @@
-
 .catalogList {
   flex: 1;
   display: flex;
@@ -9,6 +8,8 @@
 .cardList {
   display: flex;
   flex-wrap: wrap;
+  gap: 16px; /* Добавим отступы между карточками */
+  justify-content: center; /* Центрируем элементы */
 }
 
 .loadMoreButton {
@@ -17,7 +18,7 @@
   font-weight: 500;
   border-radius: 30px;
   padding: 14px 48px;
-  color:rgba(251, 251, 251, 1);
+  color: rgba(251, 251, 251, 1);
   background-color: rgba(52, 112, 255, 1);
   cursor: pointer;
   margin: 0 auto;
@@ -35,6 +36,35 @@
 .loadMoreButton:focus,
 .loadMoreButton:active {
   padding: 14px 48px; /* Сохраняем отступы при нажатии и фокусе */
-    margin-bottom: 100px;
+  margin-bottom: 100px;
+}
 
+/* Медиазапросы для адаптивности */
+
+/* Для планшетов */
+@media (max-width: 1024px) {
+  .cardList {
+    gap: 12px; /* Уменьшаем расстояние между карточками */
+  }
+
+  .loadMoreButton {
+    max-width: 160px; /* Уменьшаем максимальную ширину кнопки */
+    font-size: 14px; /* Уменьшаем размер шрифта */
+    padding: 12px 40px;
+  }
+}
+
+/* Для мобильных устройств */
+@media (max-width: 768px) {
+  .cardList {
+    gap: 10px; /* Уменьшаем расстояние между карточками */
+    justify-content: flex-start; /* Переводим карточки в левый угол */
+  }
+
+  .loadMoreButton {
+    max-width: 140px; /* Еще меньше кнопка */
+    font-size: 14px;
+    padding: 10px 30px;
+    margin-bottom: 60px; /* Уменьшаем отступ снизу */
+  }
 }
