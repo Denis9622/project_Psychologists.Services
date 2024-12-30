@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import Container from './Container/Container';
 import CatalogPage from '../pages/CatalogPage/CatalogPage';
-import SignIn from './S/S';
+import SignIn from './Sign/Sign';
 import SignUp from '../components/SignUp/SignUp';
 import FavoritesPage from '../pages/FavoritesPage/FavoritesPage';
 
