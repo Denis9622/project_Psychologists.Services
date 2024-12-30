@@ -71,18 +71,17 @@
   padding-right: 30px; /* Создаем пространство для иконки */
 }
 
-.passwordToggleIcon {
+
+.passwordToggle {
   position: absolute;
   right: 10px;
-  top: 37%;
+  top: 50%;
   transform: translateY(-50%);
-  z-index: 1;
+  cursor: pointer;
 }
-
-.passwordToggleIcon svg {
+.checkmark13 {
   width: 20px;
-  height: 20px; /* Убедимся, что обе иконки имеют одинаковые размеры */
-  display: block;
+  height: 20px;
 }
 
 .passwordToggleIcon svg path {
@@ -111,4 +110,10 @@
   border: none;
   border-radius: 30px;
   cursor: pointer;
+}
+
+.submitButton:hover,
+.submitButton:focus,
+.submitButton:active {
+  padding: 16px 0px; /* Сохраняем отступы при нажатии и фокусе */
 }

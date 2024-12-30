@@ -9,16 +9,13 @@ import FavoritesPage from '../pages/FavoritesPage/FavoritesPage';
 function App() {
   return (
     <Routes>
-      {/* Основные страницы */}
       <Route path="/" element={<Container />} />
       <Route path="/catalog" element={<CatalogPage />} />
       <Route path="/catalog/:id" element={<CamperDetailPage />} />
 
-      {/* Страницы для регистрации и авторизации */}
       <Route path="/signin" element={<SignIn />} />
       <Route path="/signup" element={<SignUp />} />
 
-      {/* Страница избранных */}
       <Route path="/favorites" element={<FavoritesPage />} />
     </Routes>
   );

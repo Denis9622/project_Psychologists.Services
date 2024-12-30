@@ -52,10 +52,15 @@ function SignUp({ onClose }) {
           ×
         </button>
         <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-          <h2>Регистрация</h2>
+          <h2 className={styles.h2class}>Registration</h2>
+          <p className={styles.textclass}>
+            Thank you for your interest in our platform! In order to register,
+            we need some information. Please provide us with the following
+            information.
+          </p>
           <input
             type="text"
-            placeholder="Имя"
+            placeholder="Name"
             {...register('name')}
             className={styles.input}
           />
@@ -74,7 +79,7 @@ function SignUp({ onClose }) {
           <div className={styles.passwordWrapper}>
             <input
               type={showPassword ? 'text' : 'password'}
-              placeholder="Пароль"
+              placeholder="Password"
               {...register('password')}
               className={styles.input}
             />
@@ -82,7 +87,15 @@ function SignUp({ onClose }) {
               onClick={togglePasswordVisibility}
               className={styles.passwordToggle}
             >
-              👁️
+              <img
+                src={
+                  showPassword
+                    ? '../../../public/images/eye.svg'
+                    : '../../../public/images//eye-off.svg'
+                }
+                alt="Toggle visibility"
+                className={styles.checkmark13}
+              />
             </span>
           </div>
           {errors.password && (
@@ -90,7 +103,7 @@ function SignUp({ onClose }) {
           )}
 
           <button type="submit" className={styles.submitButton}>
-            Зарегистрироваться
+            Sign Up
           </button>
 
           {message && <p className={styles.message}>{message}</p>}

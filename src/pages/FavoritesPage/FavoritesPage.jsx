@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import Filter from '../../components/Filters/Filters';
+import Card from '../../components/Card/Card'; // Импортируем компонент Card
 import styles from './FavoritesPage.module.css';
 
 function FavoritesPage() {
@@ -57,49 +58,18 @@ function FavoritesPage() {
         <Filter sortOption={sortOption} handleSortChange={handleSortChange} />
         <div className={styles.favoritesList}>
           {sortedFavorites.slice(0, visibleCount).map(favorite => (
-            <div key={favorite.id} className={styles.card}>
-              <div className={styles.imageContainer}>
-                <img
-                  src={favorite.avatar_url}
-                  alt={favorite.name}
-                  className={styles.avatar}
-                />
-                <span className={styles.onlineIndicator}></span>
-              </div>
-              <div className={styles.details}>
-                <div className={styles.headerRow}>
-                  <div className={styles.titleAndName}>
-                    <h3 className={styles.title}>Psychologist</h3>
-                    <h2 className={styles.name}>{favorite.name}</h2>
-                  </div>
-                  <div className={styles.rating}>
-                    ⭐ Rating: {favorite.rating}
-                  </div>
-                </div>
-                <div className={styles.flexWrap}>
-                  <p>
-                    <span className={styles.spanp}>Specialization:</span>{' '}
-                    {favorite.specialization}
-                  </p>
-                </div>
-                <p className={styles.about}>{favorite.about}</p>
-                <button
-                  className={styles.readMore}
-                  onClick={() => navigate(`/catalog/${favorite.id}`)}
-                >
-                  Read More
-                </button>
-              </div>
-            </div>
+            <Card key={favorite.id} psychologist={favorite} />
           ))}
         </div>
 
-        {/* Кнопка Load More */}
-        {visibleCount < sortedFavorites.length && (
-          <button onClick={loadMore} className={styles.loadMoreButton}>
-            Load More
-          </button>
-        )}
+        {/* Обернем кнопку в контейнер */}
+        <div className={styles.loadMoreButtonContainer}>
+          {visibleCount < sortedFavorites.length && (
+            <button onClick={loadMore} className={styles.loadMoreButton}>
+              Load More
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

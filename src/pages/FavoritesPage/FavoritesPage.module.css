@@ -6,8 +6,7 @@
   border-radius: 24px;
   margin-bottom: 32px;
   background-color: #fff;
-    margin: 0 128px;
-
+  margin: 0 128px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
@@ -141,8 +140,10 @@
   color: #0056b3;
 }
 
-
-
+.loadMoreButtonContainer {
+  display: flex;
+  justify-content: center;
+}
 
 .loadMoreButton {
   max-width: 176px;
@@ -150,25 +151,15 @@
   font-weight: 500;
   border-radius: 30px;
   padding: 14px 48px;
-  color:rgba(251, 251, 251, 1);
+  color: rgba(251, 251, 251, 1);
   background-color: rgba(52, 112, 255, 1);
   cursor: pointer;
-  margin: 0 auto;
-  margin-bottom: 100px;
   border: none;
+  margin-bottom: 100px;
 }
-
-
 
 .loadMoreButton:hover,
 .loadMoreButton:focus,
 .loadMoreButton:active {
   padding: 14px 48px; /* Сохраняем отступы при нажатии и фокусе */
-    margin-bottom: 100px;
-
 }
-
-
-
-
-/* Остальные стили остаются такими же, как и раньше */

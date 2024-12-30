@@ -1,11 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
 import {
   addToFavorites,
   removeFromFavorites,
 } from '../../redux/favoritesSlice';
-import { useState } from 'react';
 import { auth } from '../../components/Firebase/firebase'; // Для проверки авторизации
 import Modal from '../Card/Modal'; // Компонент для модального окна
+import AppointmentForm from '../../components/Card/AppointmentForm'; // Компонент для формы заявки
 import styles from './Card.module.css'; // Подключаем стили
 
 function Card({ psychologist }) {
@@ -13,6 +14,8 @@ function Card({ psychologist }) {
   const favorites = useSelector(state => state.favorites.list);
   const isFavorite = favorites.some(fav => fav.id === psychologist.id);
   const [showModal, setShowModal] = useState(false); // Состояние для модального окна
+  const [showDetails, setShowDetails] = useState(false); // Состояние для показа дополнительных деталей
+  const [showAppointmentModal, setShowAppointmentModal] = useState(false); // Состояние для показа модального окна заявки
 
   const toggleFavorite = () => {
     const user = auth.currentUser; // Проверка авторизации
@@ -30,6 +33,18 @@ function Card({ psychologist }) {
 
   const closeModal = () => {
     setShowModal(false); // Закрытие модального окна
+  };
+
+  const toggleDetails = () => {
+    setShowDetails(prevState => !prevState); // Переключение состояния показа деталей
+  };
+
+  const handleMakeAppointment = () => {
+    setShowAppointmentModal(true); // Показ модального окна для заявки на встречу
+  };
+
+  const closeAppointmentModal = () => {
+    setShowAppointmentModal(false); // Закрытие модального окна для заявки на встречу
   };
 
   return (
@@ -50,7 +65,10 @@ function Card({ psychologist }) {
           <div className={styles.rating}>
             ⭐ Rating: {psychologist.rating}
             <p className={styles.price}>
-              Price/hour: ${psychologist.price_per_hour}
+              Price/hour:{' '}
+              <span className={styles.pricegreen}>
+                ${psychologist.price_per_hour}
+              </span>
             </p>
             <button
               className={`${styles.favoriteButton} ${
@@ -84,17 +102,55 @@ function Card({ psychologist }) {
           </p>
         </div>
         <p className={styles.about}>{psychologist.about}</p>
-        <button className={styles.readMore}>Read More</button>
+        <button className={styles.readMore} onClick={toggleDetails}>
+          {showDetails ? 'Show Less' : 'Read More'}
+        </button>
+
+        {/* Показ дополнительных деталей при клике на кнопку Read More */}
+        {showDetails && (
+          <div className={styles.additionalDetails}>
+            {psychologist.reviews.map((review, index) => (
+              <div key={index} className={styles.review}>
+                <div className={styles.reviewAvatar}>
+                  {review.reviewer.charAt(0)}
+                </div>
+                <div className={styles.reviewContent}>
+                  <p className={styles.reviewer}>
+                    <strong>{review.reviewer}</strong>
+                  </p>
+                  <p> ⭐ {review.rating}</p>
+                  <p className={styles.comment}>{review.comment}</p>
+                </div>
+              </div>
+            ))}
+            <button
+              className={styles.makeAppointmentButton}
+              onClick={handleMakeAppointment}
+            >
+              Make an appointment
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Модальное окно */}
       {showModal && (
         <Modal onClose={closeModal}>
-          <h2>Вы не авторизованы</h2>
-          <p>Чтобы добавить в избранное, пожалуйста, войдите в свой аккаунт.</p>
+          <h2>You are not logged in</h2>
+          <p>To add to favorites, please log in to your account.</p>
           <button onClick={closeModal} className={styles.modalCloseButton}>
-            Закрыть
+            Close
           </button>
+        </Modal>
+      )}
+
+      {/* Модальное окно для заявки на встречу */}
+      {showAppointmentModal && (
+        <Modal onClose={closeAppointmentModal}>
+          <AppointmentForm
+            psychologist={psychologist}
+            onClose={closeAppointmentModal}
+          />
         </Modal>
       )}
     </div>

@@ -118,3 +118,10 @@
   color: rgba(25, 26, 21, 0.5);
   margin-bottom: 40px;
 }
+
+.submitButton:hover,
+.submitButton:focus,
+.submitButton:active {
+  padding: 16px 0px; /* Сохраняем отступы при нажатии и фокусе */
+
+}

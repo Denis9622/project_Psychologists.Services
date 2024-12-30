@@ -47,7 +47,11 @@ function SignIn({ onClose }) {
           ×
         </button>
         <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-          <h2>Sign In</h2>
+          <h2 className={styles.h2class}>Log In</h2>
+          <p className={styles.textclass}>
+            Welcome back! Please enter your credentials to access your account
+            and continue your search for a psychologist.
+          </p>
           <input
             type="email"
             placeholder="Email"
@@ -68,7 +72,15 @@ function SignIn({ onClose }) {
               onClick={togglePasswordVisibility}
               className={styles.passwordToggle}
             >
-              {showPassword ? '👁️' : '🙈'}
+              <img
+                src={
+                  showPassword
+                    ? '../../../public/images/eye.svg'
+                    : '../../../public/images/eye-off.svg'
+                }
+                alt="Toggle visibility"
+                className={styles.checkmark13}
+              />
             </span>
           </div>
           {errors.password && (
