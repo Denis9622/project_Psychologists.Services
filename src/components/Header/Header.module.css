@@ -1,4 +1,3 @@
-/* Основные стили Header */
 .header {
   max-width: 1440px;
   display: flex;
@@ -6,9 +5,9 @@
   width: 100%;
   z-index: 1000;
   margin-top: 24px;
-  padding: 0px 128px; /* Отступ слева и справа для центрирования контента */
+  padding: 0px 128px; 
   margin-bottom: 24px;
-  justify-content: space-between; /* Добавляем пространство между элементами */
+  justify-content: space-between; 
 }
 
 .logo {
@@ -100,71 +99,68 @@
   background-color: rgba(52, 112, 255, 0.8);
 }
 
-/* Медиазапросы для адаптивности */
 
-/* Для планшетов */
 @media (max-width: 1024px) {
   .header {
-    padding: 0px 60px; /* Уменьшаем отступы для планшетов */
+    padding: 0px 60px;
   }
 
   .logo {
-    font-size: 18px; /* Уменьшаем размер шрифта логотипа */
-    margin-right: 60px; /* Уменьшаем отступ справа от логотипа */
+    font-size: 18px; 
+    margin-right: 60px; 
   }
 
   .ulclass {
-    gap: 20px; /* Уменьшаем промежуток между пунктами навигации */
+    gap: 20px; 
   }
 
   .nav {
     display: flex;
-    gap: 20px; /* Уменьшаем расстояние между пунктами навигации */
+    gap: 20px; 
   }
 
   .userAuth {
-    gap: 16px; /* Уменьшаем отступ между элементами в блоке авторизации */
+    gap: 16px; 
   }
 
   .linkAuth {
-    font-size: 14px; /* Уменьшаем размер шрифта кнопок авторизации */
-    padding: 12px 30px; /* Уменьшаем внутренние отступы */
+    font-size: 14px; 
+    padding: 12px 30px; 
   }
 }
 
-/* Для мобильных устройств */
 @media (max-width: 768px) {
   .header {
-    padding: 0px 20px; /* Уменьшаем отступы с боков для мобильных устройств */
-    flex-direction: column; /* Переводим элементы в колонку */
-    align-items: center; /* Центрируем элементы по вертикали */
+    padding: 0px 20px; 
+    flex-direction: column; 
+    align-items: center; 
   }
 
   .logo {
-    font-size: 16px; /* Уменьшаем размер шрифта логотипа */
+    font-size: 16px; 
     margin-right: 0;
-    margin-bottom: 16px; /* Добавляем отступ снизу */
+    margin-bottom: 16px; 
   }
 
   .ulclass {
-    gap: 10px; /* Уменьшаем расстояние между пунктами навигации */
-    flex-direction: column; /* Размещаем пункты навигации вертикально */
-    align-items: center; /* Центрируем элементы */
+    gap: 10px; 
+    flex-direction: column; 
+    align-items: center; 
   }
 
   .nav {
-    flex-direction: column; /* Переводим навигацию в колонку */
-    gap: 16px; /* Уменьшаем промежуток между пунктами */
+    flex-direction: column; 
+    gap: 16px; 
   }
 
   .userAuth {
-    flex-direction: column; /* Размещаем элементы в колонку */
+    flex-direction: column; 
     margin-left: 0;
-    gap: 12px; /* Уменьшаем промежуток между кнопками авторизации */
+    gap: 12px; 
   }
 
   .linkAuth {
-    font-size: 14px; /* Уменьшаем размер шрифта */
-    padding: 12px 30px; /* Уменьшаем отступы */
+    font-size: 14px; 
+    padding: 12px 30px; 
   }
 }

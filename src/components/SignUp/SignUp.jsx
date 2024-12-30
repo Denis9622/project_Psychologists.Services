@@ -4,7 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { signUpSchema } from './../Validation/validationSchema';
 import { register as registerUser } from './../Auth/auth';
 import styles from './SignUp.module.css';
-import { useAuth } from './../utilits/authContext';
+import { useAuth } from '../../utilits/authContext';
 
 function SignUp({ onClose }) {
   const { setCurrentUser } = useAuth();

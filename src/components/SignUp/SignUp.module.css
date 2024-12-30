@@ -1,4 +1,3 @@
-/* SignIn.module.css */
 .modal {
   position: fixed;
   top: 0;
@@ -16,14 +15,13 @@
   background: white;
   width: 566px;
   padding: 64px;
-  border-radius: 30px; /* Закругление углов */
+  border-radius: 30px;
   position: relative;
   z-index: 1001;
-  max-width: 90%; /* Ограничиваем ширину на мобильных устройствах */
+  max-width: 90%;
   box-sizing: border-box;
 }
 
-/* Кнопка закрытия */
 .closeButton {
   position: absolute;
   top: 20px;
@@ -45,14 +43,14 @@
   line-height: 48px;
   letter-spacing: -0.02em;
   margin-bottom: 20px;
-  text-align: center; /* Центрируем заголовок */
+  text-align: center;
 }
 
 .textclass {
   max-width: 438px;
   color: rgba(25, 26, 21, 0.5);
   margin-bottom: 40px;
-  text-align: center; /* Центрируем текст */
+  text-align: center;
 }
 
 .input::placeholder {
@@ -63,7 +61,7 @@
   position: relative;
   width: 100%;
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -74,7 +72,7 @@
   border-radius: 12px;
   width: 100%;
   box-sizing: border-box;
-  padding-right: 30px; /* Создаем пространство для иконки */
+  padding-right: 30px;
 }
 
 .passwordToggle {
@@ -95,11 +93,11 @@
 }
 
 .passwordToggleIcon:hover svg path {
-  stroke: #0056b3; /* Цвет при наведении */
+  stroke: #0056b3;
 }
 
 .passwordToggleIcon:active svg path {
-  stroke: #003366; /* Цвет при клике */
+  stroke: #003366;
 }
 
 .error {
@@ -124,59 +122,55 @@
   padding: 16px 0px;
 }
 
-/* Адаптивные стили */
-
-/* Для планшетов */
 @media (max-width: 1024px) {
   .modalContent {
-    width: 80%; /* Уменьшаем ширину на планшетах */
-    padding: 48px; /* Уменьшаем padding */
+    width: 80%;
+    padding: 48px;
   }
 
   .h2class {
-    font-size: 32px; /* Уменьшаем размер шрифта заголовка */
+    font-size: 32px;
   }
 
   .textclass {
-    max-width: 380px; /* Уменьшаем ширину текста */
+    max-width: 380px;
   }
 
   .input {
-    padding: 14px; /* Уменьшаем padding в input */
+    padding: 14px;
   }
 
   .submitButton {
-    padding: 14px 0px; /* Уменьшаем padding в кнопке */
+    padding: 14px 0px;
   }
 }
 
-/* Для мобильных устройств */
 @media (max-width: 768px) {
   .modalContent {
-    width: 90%; /* Максимальная ширина 90% экрана */
-    padding: 32px; /* Меньше padding */
+    width: 90%;
+    padding: 32px;
   }
 
   .h2class {
-    font-size: 24px; /* Уменьшаем размер шрифта заголовка */
-    text-align: center; /* Центрируем заголовок */
+    font-size: 24px;
+    text-align: center;
   }
 
   .textclass {
-    max-width: 100%; /* Убираем ограничение ширины текста */
-    text-align: center; /* Центрируем текст */
+    max-width: 100%;
+    text-align: center;
   }
 
   .input {
-    padding: 12px; /* Уменьшаем padding */
-    font-size: 14px; /* Уменьшаем размер шрифта в input */
+    padding: 12px;
+    font-size: 14px;
   }
 
   .submitButton {
-    padding: 14px 0px; /* Уменьшаем padding */
+    padding: 14px 0px;
   }
 
   .closeButton {
-    font-size: 30px; /* Уменьшаем размер иконки закрытия */
+    font-size: 30px;
   }
 }

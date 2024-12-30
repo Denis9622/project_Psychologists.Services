@@ -7,17 +7,15 @@
   flex-direction: column;
 }
 
-/* Tablets */
 @media (max-width: 1024px) {
   .container {
-    background-position: top; /* Adjust as needed */
+    background-position: top; 
   }
 }
 
-/* Mobile devices */
 @media (max-width: 768px) {
   .container {
-    background-position: bottom; /* Adjust as needed */
-    padding: 20px; /* Adjust as needed */
+    background-position: bottom; 
+    padding: 20px; 
   }
 }

@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchPsychologistsAsync } from '../../redux/psychologistsSlice';
+import { fetchPsychologistsAsync } from '../../redux/psychologists/psychologistsSlice';
 import {
   addToFavorites,
   removeFromFavorites,
-} from '../../redux/favoritesSlice';
+} from '../../redux/favorites/favoritesSlice';
 import Card from '../../components/Card/Card';
 import Header from '../../components/Header/Header';
 import Filter from '../../components/Filters/Filters';

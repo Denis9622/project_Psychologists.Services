@@ -257,10 +257,9 @@
 .makeAppointmentButton:hover,
 .makeAppointmentButton:focus,
 .makeAppointmentButton:active {
-  padding: 14px 32px; /* Сохраняем отступы при нажатии и фокусе */
+  padding: 14px 32px; 
 }
 
-/* Адаптивность для мобильных устройств (до 480px) */
 @media (max-width: 480px) {
   .card {
     flex-direction: column;
@@ -323,7 +322,6 @@
   }
 }
 
-/* Адаптивность для планшетов (до 768px) */
 @media (max-width: 768px) {
   .card {
     flex-direction: column;

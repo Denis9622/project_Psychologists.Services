@@ -3,7 +3,7 @@ import { useState } from 'react';
 import {
   addToFavorites,
   removeFromFavorites,
-} from '../../redux/favoritesSlice';
+} from '../../redux/favorites/favoritesSlice';
 import { auth } from '../../services/firebase'; // Для проверки авторизации
 import Modal from '../Card/Modal'; // Компонент для модального окна
 import AppointmentForm from '../../components/Card/AppointmentForm'; // Компонент для формы заявки
@@ -13,14 +13,14 @@ function Card({ psychologist }) {
   const dispatch = useDispatch();
   const favorites = useSelector(state => state.favorites.list);
   const isFavorite = favorites.some(fav => fav.id === psychologist.id);
-  const [showModal, setShowModal] = useState(false); // Состояние для модального окна
-  const [showDetails, setShowDetails] = useState(false); // Состояние для показа дополнительных деталей
-  const [showAppointmentModal, setShowAppointmentModal] = useState(false); // Состояние для показа модального окна заявки
+  const [showModal, setShowModal] = useState(false);
+  const [showDetails, setShowDetails] = useState(false);
+  const [showAppointmentModal, setShowAppointmentModal] = useState(false);
 
   const toggleFavorite = () => {
-    const user = auth.currentUser; // Проверка авторизации
+    const user = auth.currentUser;
     if (!user) {
-      setShowModal(true); // Показ модального окна для неавторизованных пользователей
+      setShowModal(true);
       return;
     }
 
@@ -32,19 +32,19 @@ function Card({ psychologist }) {
   };
 
   const closeModal = () => {
-    setShowModal(false); // Закрытие модального окна
+    setShowModal(false);
   };
 
   const toggleDetails = () => {
-    setShowDetails(prevState => !prevState); // Переключение состояния показа деталей
+    setShowDetails(prevState => !prevState);
   };
 
   const handleMakeAppointment = () => {
-    setShowAppointmentModal(true); // Показ модального окна для заявки на встречу
+    setShowAppointmentModal(true);
   };
 
   const closeAppointmentModal = () => {
-    setShowAppointmentModal(false); // Закрытие модального окна для заявки на встречу
+    setShowAppointmentModal(false);
   };
 
   return (
@@ -106,7 +106,6 @@ function Card({ psychologist }) {
           {showDetails ? 'Show Less' : 'Read More'}
         </button>
 
-        {/* Показ дополнительных деталей при клике на кнопку Read More */}
         {showDetails && (
           <div className={styles.additionalDetails}>
             {psychologist.reviews.map((review, index) => (
@@ -144,7 +143,6 @@ function Card({ psychologist }) {
         </Modal>
       )}
 
-      {/* Модальное окно для заявки на встречу */}
       {showAppointmentModal && (
         <Modal onClose={closeAppointmentModal}>
           <AppointmentForm
