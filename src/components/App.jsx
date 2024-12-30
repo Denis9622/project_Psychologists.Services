@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import Container from './Container/Container';
 import CatalogPage from '../pages/CatalogPage/CatalogPage';
 import CamperDetailPage from '../pages/CamperDetailPage/CamperDetailPage';
-import SignIn from '../components/SignIn/SignIn';
+import SignIn from '../components/SignIn/SignIn.jsx';
 import SignUp from '../components/SignUp/SignUp';
 import FavoritesPage from '../pages/FavoritesPage/FavoritesPage';
 
