@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { db, ref, get } from '../components/Firebase/firebase.jsx'; // Импортируем Firebase
-
+import { db, ref, get } from '../services/firebase'; // Импортируем Firebase
 // Асинхронный экшн для загрузки психологов
 export const fetchPsychologistsAsync = () => async dispatch => {
   dispatch(setLoading(true)); // Начинаем загрузку

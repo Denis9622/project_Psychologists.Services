@@ -1,5 +1,5 @@
 import { ref, get } from 'firebase/database';
-import { db } from '../components/Firebase/firebase'; // Убедитесь, что путь к файлу правильный
+import { db } from '../services/firebase'; // Убедитесь, что путь к файлу правильный
 
 export const fetchPsychologists = async () => {
   try {

@@ -164,7 +164,18 @@
   padding: 14px 48px;
   background-color: #d84343;
 }
+.noFavorites{
+display: flex;
+  align-items: flex-start;
+  border: 1px solid rgba(251, 251, 251, 1);
+  padding: 24px;
+  border-radius: 24px;
+  margin-bottom: 32px;
+  background-color: #fff;
+  margin: 0 128px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 
+}
 /* Медиазапросы для адаптивности */
 
 /* Для планшетов */

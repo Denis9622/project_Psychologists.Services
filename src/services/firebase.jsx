@@ -14,14 +14,10 @@ const firebaseConfig = {
 };
 
 // Инициализация Firebase
-console.log('Initializing Firebase...');
 const app = initializeApp(firebaseConfig);
-console.log('Firebase app initialized: ', app);
 
 // Инициализация Auth и Database
 const auth = getAuth(app);
-console.log('Firebase Auth initialized: ', auth);
 const db = getDatabase(app);
-console.log('Firebase Database initialized: ', db);
 
 export { db, ref, get, auth };

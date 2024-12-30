@@ -5,7 +5,7 @@ import {
   onAuthStateChanged,
   updateProfile, // Ensure updateProfile is imported
 } from 'firebase/auth';
-import { auth } from './../Firebase/firebase';
+import { auth } from '../../services/firebase';
 
 // Регистрация пользователя с установкой имени
 export const register = async (email, password, name) => {

@@ -4,7 +4,7 @@ import {
   addToFavorites,
   removeFromFavorites,
 } from '../../redux/favoritesSlice';
-import { auth } from '../../components/Firebase/firebase'; // Для проверки авторизации
+import { auth } from '../../services/firebase'; // Для проверки авторизации
 import Modal from '../Card/Modal'; // Компонент для модального окна
 import AppointmentForm from '../../components/Card/AppointmentForm'; // Компонент для формы заявки
 import styles from './Card.module.css'; // Подключаем стили

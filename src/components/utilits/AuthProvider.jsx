@@ -14,8 +14,6 @@ export function AuthProvider({ children }) {
     return () => {
       if (typeof unsubscribe === 'function') {
         unsubscribe(); // Проверяем, что unsubscribe это функция перед вызовом
-      } else {
-        console.error('unsubscribe is not a function');
       }
     };
   }, []);

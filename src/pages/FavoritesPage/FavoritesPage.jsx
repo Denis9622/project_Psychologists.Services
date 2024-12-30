@@ -1,13 +1,11 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import Filter from '../../components/Filters/Filters';
 import Card from '../../components/Card/Card'; // Импортируем компонент Card
 import styles from './FavoritesPage.module.css';
 
 function FavoritesPage() {
-  const navigate = useNavigate();
   const { list: favorites } = useSelector(state => state.favorites);
 
   const [visibleCount, setVisibleCount] = useState(3); // Показывать сначала 3 карточки
@@ -40,36 +38,34 @@ function FavoritesPage() {
     }
   });
 
-  if (favorites.length === 0) {
-    return (
-      <div className={styles.noFavorites}>
-        <h2>You have no favorite psychologists yet.</h2>
-        <button onClick={() => navigate('/catalog')} className={styles.button}>
-          Go to Catalog
-        </button>
-      </div>
-    );
-  }
-
   return (
     <div>
       <Header />
       <div className={styles.favorites}>
-        <Filter sortOption={sortOption} handleSortChange={handleSortChange} />
-        <div className={styles.favoritesList}>
-          {sortedFavorites.slice(0, visibleCount).map(favorite => (
-            <Card key={favorite.id} psychologist={favorite} />
-          ))}
-        </div>
-
+        {favorites.length > 0 && (
+          <Filter sortOption={sortOption} handleSortChange={handleSortChange} />
+        )}
+        {favorites.length === 0 ? (
+          <div className={styles.noFavorites}>
+            <h2>You have no favorite psychologists yet.</h2>
+          </div>
+        ) : (
+          <div className={styles.favoritesList}>
+            {sortedFavorites.slice(0, visibleCount).map(favorite => (
+              <Card key={favorite.id} psychologist={favorite} />
+            ))}
+          </div>
+        )}
         {/* Обернем кнопку в контейнер */}
-        <div className={styles.loadMoreButtonContainer}>
-          {visibleCount < sortedFavorites.length && (
-            <button onClick={loadMore} className={styles.loadMoreButton}>
-              Load More
-            </button>
-          )}
-        </div>
+        {favorites.length > 0 && (
+          <div className={styles.loadMoreButtonContainer}>
+            {visibleCount < sortedFavorites.length && (
+              <button onClick={loadMore} className={styles.loadMoreButton}>
+                Load More
+              </button>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
