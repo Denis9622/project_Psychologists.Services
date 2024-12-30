@@ -23,7 +23,7 @@ function HomePage() {
           >
             Get started
             <img
-              src="../../../public/images/Arrow 16.svg" // Путь к вашему SVG-файлу
+              src="/images/Arrow 16.svg" // Путь к вашему SVG-файлу
               alt="Arrow icon"
               className={styles.icon}
             />
@@ -33,7 +33,7 @@ function HomePage() {
           <img className={styles.image} src="/images/image.jpg" alt="Hero" />
           <div className={`${styles.label} ${styles.label1}`}>
             <img
-              src="../../../public/images/feCheck.svg"
+              src="/images/feCheck.svg"
               alt="Checkmark"
               className={styles.checkmark}
             />
@@ -44,19 +44,17 @@ function HomePage() {
           </div>
           <div className={`${styles.label} ${styles.label2}`}>
             <img
-              src="../../../public/images/question.svg"
+              src="/images/question.svg"
               alt="Checkmark"
               className={styles.checkmark12}
             />
-          
           </div>
           <div className={`${styles.label} ${styles.label3}`}>
             <img
-              src="../../../public/images/users.svg"
+              src="/images/users.svg"
               alt="Checkmark"
               className={styles.checkmark13}
             />
-            
           </div>
         </div>
       </div>
