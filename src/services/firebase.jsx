@@ -2,14 +2,15 @@ import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import { getDatabase, ref, get } from 'firebase/database';
 
+// Используйте переменные окружения
 const firebaseConfig = {
-  apiKey: 'AIzaSyBP9QhM_amUbPYEYQ7qLOgY322beDwybqc',
-  authDomain: 'psychologistsapp.firebaseapp.com',
-  databaseURL: 'https://psychologistsapp-default-rtdb.firebaseio.com',
-  projectId: 'psychologistsapp',
-  storageBucket: 'psychologistsapp.firebasestorage.app',
-  messagingSenderId: '1026108303745',
-  appId: '1:1026108303745:web:7bb3b0c0751fb6f4bce080',
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);
