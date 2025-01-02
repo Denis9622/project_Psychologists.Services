@@ -23,7 +23,7 @@ function HomePage() {
           >
             Get started
             <img
-              src="/images/Arrow 16.svg" // Путь к вашему SVG-файлу
+              src="/images/Arrow 16.svg"
               alt="Arrow icon"
               className={styles.icon}
             />

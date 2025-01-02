@@ -1,5 +1,3 @@
-// Loader.jsx
-
 const Loader = () => {
   return (
     <div style={styles.loaderContainer}>

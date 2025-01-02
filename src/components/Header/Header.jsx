@@ -35,19 +35,49 @@ function Header() {
         <nav className={styles.nav}>
           <ul className={styles.ulclass}>
             <li>
-              <NavLink to="/" className={styles.navLink}>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? styles.navLinkActive : styles.navLink
+                }
+              >
                 Home
+                <img
+                  src="/images/iconmenu.svg"
+                  alt="Checkmark"
+                  className={styles.iconActive}
+                />
               </NavLink>
             </li>
             <li>
-              <NavLink to="/catalog" className={styles.navLink}>
+              <NavLink
+                to="/catalog"
+                className={({ isActive }) =>
+                  isActive ? styles.navLinkActive : styles.navLink
+                }
+              >
                 Psychologists
+                <img
+                  src="/images/iconmenu.svg"
+                  alt="Checkmark"
+                  className={styles.iconActive}
+                />
               </NavLink>
             </li>
             {user && (
               <li>
-                <NavLink to="/favorites" className={styles.navLink}>
+                <NavLink
+                  to="/favorites"
+                  className={({ isActive }) =>
+                    isActive ? styles.navLinkActive : styles.navLink
+                  }
+                >
                   Favorites
+                  <img
+                    src="/images/iconmenu.svg"
+                    alt="Checkmark"
+                    className={styles.iconActive}
+                  />
                 </NavLink>
               </li>
             )}

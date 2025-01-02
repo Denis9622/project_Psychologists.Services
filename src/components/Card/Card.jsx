@@ -4,10 +4,10 @@ import {
   addToFavorites,
   removeFromFavorites,
 } from '../../redux/favorites/favoritesSlice';
-import { auth } from '../../services/firebase'; // Для проверки авторизации
-import Modal from '../Card/Modal'; // Компонент для модального окна
-import AppointmentForm from '../../components/Card/AppointmentForm'; // Компонент для формы заявки
-import styles from './Card.module.css'; // Подключаем стили
+import { auth } from '../../services/firebase'; 
+import Modal from '../Card/Modal'; 
+import AppointmentForm from '../../components/Card/AppointmentForm'; 
+import styles from './Card.module.css';
 
 function Card({ psychologist }) {
   const dispatch = useDispatch();

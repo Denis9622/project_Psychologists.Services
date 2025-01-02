@@ -5,9 +5,9 @@
   width: 100%;
   z-index: 1000;
   margin-top: 24px;
-  padding: 0px 128px; 
+  padding: 0px 128px;
   margin-bottom: 24px;
-  justify-content: space-between; 
+  justify-content: space-between;
 }
 
 .logo {
@@ -98,7 +98,30 @@
   transform: scale(0.95);
   background-color: rgba(52, 112, 255, 0.8);
 }
+/* Добавьте стили для иконки */
+.iconActive {
+  width: 8px;
+  height: 8px;
+  background-color: #3470ff; /* Цвет иконки */
+  margin: 4px auto 0 auto; /* Отступы */
+  display: none; /* По умолчанию скрыто */
+  position: absolute; /* Позиционирование */
+  left: 50%; /* Позиционирование по центру */
+  transform: translateX(-50%); /* Корректировка для точного центра */
+  border-radius: 10px;
+}
 
+/* Показываем иконку для активного пункта меню */
+.navLinkActive .iconActive {
+  display: block;
+}
+
+/* Обновите стили для navLink и navLinkActive */
+.navLink,
+.navLinkActive {
+  position: relative; /* Для корректного позиционирования иконки */
+  display: inline-block;
+}
 
 @media (max-width: 1024px) {
   .header {
@@ -106,61 +129,63 @@
   }
 
   .logo {
-    font-size: 18px; 
-    margin-right: 60px; 
+    font-size: 18px;
+    margin-right: 60px;
   }
 
   .ulclass {
-    gap: 20px; 
+    gap: 20px;
   }
 
   .nav {
     display: flex;
-    gap: 20px; 
+    gap: 20px;
   }
 
   .userAuth {
-    gap: 16px; 
+    gap: 16px;
   }
 
   .linkAuth {
-    font-size: 14px; 
-    padding: 12px 30px; 
+    font-size: 14px;
+    padding: 12px 30px;
   }
 }
 
 @media (max-width: 768px) {
   .header {
-    padding: 0px 20px; 
-    flex-direction: column; 
-    align-items: center; 
+    padding: 0px 20px;
+    flex-direction: column;
+    align-items: center;
   }
 
+
   .logo {
-    font-size: 16px; 
+    font-size: 16px;
     margin-right: 0;
-    margin-bottom: 16px; 
+    margin-bottom: 16px;
   }
 
   .ulclass {
-    gap: 10px; 
-    flex-direction: column; 
-    align-items: center; 
+    gap: 10px;
+    flex-direction: column;
+    align-items: center;
   }
 
   .nav {
-    flex-direction: column; 
-    gap: 16px; 
+    flex-direction: column;
+    gap: 16px;
   }
 
   .userAuth {
-    flex-direction: column; 
+    margin-top: 20px;
+    flex-direction: column;
     margin-left: 0;
-    gap: 12px; 
+    gap: 12px;
   }
 
   .linkAuth {
-    font-size: 14px; 
-    padding: 12px 30px; 
+    font-size: 14px;
+    padding: 12px 30px;
   }
 }

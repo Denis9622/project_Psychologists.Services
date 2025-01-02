@@ -2,17 +2,17 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Header from '../../components/Header/Header';
 import Filter from '../../components/Filters/Filters';
-import Card from '../../components/Card/Card'; // Импортируем компонент Card
+import Card from '../../components/Card/Card'; 
 import styles from './FavoritesPage.module.css';
 
 function FavoritesPage() {
   const { list: favorites } = useSelector(state => state.favorites);
 
-  const [visibleCount, setVisibleCount] = useState(3); // Показывать сначала 3 карточки
-  const [sortOption, setSortOption] = useState('alphabetical-asc'); // Начальный вариант сортировки
+  const [visibleCount, setVisibleCount] = useState(3); 
+  const [sortOption, setSortOption] = useState('alphabetical-asc'); 
 
   const loadMore = () => {
-    setVisibleCount(prevCount => prevCount + 3); // Увеличиваем количество отображаемых карточек на 3
+    setVisibleCount(prevCount => prevCount + 3); 
   };
 
   const handleSortChange = event => {
@@ -56,7 +56,6 @@ function FavoritesPage() {
             ))}
           </div>
         )}
-        {/* Обернем кнопку в контейнер */}
         {favorites.length > 0 && (
           <div className={styles.loadMoreButtonContainer}>
             {visibleCount < sortedFavorites.length && (
