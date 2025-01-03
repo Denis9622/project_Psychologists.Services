@@ -87,10 +87,20 @@ function Header() {
         <div className={styles.userAuth}>
           {user ? (
             <>
+              <div className={styles.userIconContainer}>
+                <img
+                  src="/images/iconauth.svg"
+                  alt="User Icon"
+                  className={styles.userIcon}
+                />
+              </div>
               <span className={styles.username}>
                 {user.displayName || user.email}
               </span>
-              <button onClick={logout} className={styles.linkAuth}>
+              <button
+                onClick={logout}
+                className={`${styles.linkAuth} ${styles.logoutButton}`}
+              >
                 Logout
               </button>
             </>

@@ -39,7 +39,7 @@ function FavoritesPage() {
   });
 
   return (
-    <div>
+    <div className={styles.background}>
       <Header />
       <div className={styles.favorites}>
         {favorites.length > 0 && (

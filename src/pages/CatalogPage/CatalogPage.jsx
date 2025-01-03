@@ -63,15 +63,15 @@ function CatalogPage() {
   });
 
   if (loading) {
-    return <p>Загрузка...</p>;
+    return <p>loading...</p>;
   }
 
   if (error) {
-    return <p>Ошибка: {error}</p>;
+    return <p>error: {error}</p>;
   }
 
   return (
-    <div>
+    <div className={styles.background}>
       <Header />
       <div className={styles.catalogContainer}>
         <Filter sortOption={sortOption} handleSortChange={handleSortChange} />
@@ -91,7 +91,7 @@ function CatalogPage() {
                   />
                 ))
             ) : (
-              <p>Нет психологов для отображения</p>
+              <p>No psychologists to display</p>
             )}
           </div>
 

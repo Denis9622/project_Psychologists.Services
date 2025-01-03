@@ -28,8 +28,10 @@
   right: 20px;
   background: transparent;
   border: none;
-  font-size: 40px;
   cursor: pointer;
+  width: 32px;
+  height: 32px;
+
 }
 
 .form {
@@ -87,14 +89,12 @@
   height: 20px;
 }
 
-/* Стили для ошибок */
 .error {
   color: red;
   font-size: 12px;
   margin-bottom: 10px;
 }
 
-/* Стили кнопки */
 .submitButton {
   margin-top: 12px;
   padding: 16px 0px;

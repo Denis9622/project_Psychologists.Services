@@ -4,7 +4,6 @@
   border: 1px solid rgba(251, 251, 251, 1);
   padding: 24px;
   border-radius: 24px;
-  margin: 0 128px;
   margin-bottom: 32px;
   background-color: #fff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -125,11 +124,13 @@
 }
 
 .readMore {
+  background: none;
+
   width: 82px;
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
-  color: #191a15;
+  color: rgba(25, 26, 21, 1);
   text-decoration: underline solid;
   border: none;
   border-radius: 5px;
@@ -141,6 +142,7 @@
 .readMore:hover,
 .readMore:focus,
 .readMore:active {
+  background: none;
   margin-bottom: 30px;
 }
 
@@ -149,7 +151,6 @@
   margin-top: 10px;
 }
 
-/* Модальное окно */
 .modal {
   position: fixed;
   top: 0;
@@ -209,8 +210,6 @@
   color: #38cd3e;
 }
 
-
-
 .review {
   display: flex;
   align-items: center;
@@ -257,7 +256,7 @@
 .makeAppointmentButton:hover,
 .makeAppointmentButton:focus,
 .makeAppointmentButton:active {
-  padding: 14px 32px; 
+  padding: 14px 32px;
 }
 
 @media (max-width: 480px) {

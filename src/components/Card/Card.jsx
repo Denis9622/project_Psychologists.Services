@@ -5,8 +5,8 @@ import {
   removeFromFavorites,
 } from '../../redux/favorites/favoritesSlice';
 import { auth } from '../../services/firebase'; 
-import Modal from '../Card/Modal'; 
-import AppointmentForm from '../../components/Card/AppointmentForm'; 
+import Modal from '../Modal/Modal'; 
+import AppointmentForm from '../AppointmentForm/AppointmentForm'; 
 import styles from './Card.module.css';
 
 function Card({ psychologist }) {
@@ -132,7 +132,6 @@ function Card({ psychologist }) {
         )}
       </div>
 
-      {/* Модальное окно */}
       {showModal && (
         <Modal onClose={closeModal}>
           <h2>You are not logged in</h2>

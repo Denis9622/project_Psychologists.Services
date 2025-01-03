@@ -13,7 +13,7 @@ export function AuthProvider({ children }) {
 
     return () => {
       if (typeof unsubscribe === 'function') {
-        unsubscribe(); // Проверяем, что unsubscribe это функция перед вызовом
+        unsubscribe(); 
       }
     };
   }, []);

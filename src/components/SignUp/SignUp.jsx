@@ -23,10 +23,10 @@ function SignUp({ onClose }) {
 
   const onSubmit = async data => {
     try {
-      const user = await registerUser(data.email, data.password, data.name); 
-      setCurrentUser(user); 
+      const user = await registerUser(data.email, data.password, data.name);
+      setCurrentUser(user);
       setMessage('Регистрация успешна! Добро пожаловать!');
-      onClose(); 
+      onClose();
     } catch (error) {
       console.error('Ошибка регистрации: ', error);
       setMessage('Ошибка регистрации. Попробуйте снова.');
@@ -49,7 +49,11 @@ function SignUp({ onClose }) {
     <div className={styles.modal} onClick={onClose}>
       <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
         <button className={styles.closeButton} onClick={onClose}>
-          ×
+          <img
+            src="/images/close.svg"
+            alt="Checkmark"
+            className={styles.checkmark131}
+          />
         </button>
         <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
           <h2 className={styles.h2class}>Registration</h2>

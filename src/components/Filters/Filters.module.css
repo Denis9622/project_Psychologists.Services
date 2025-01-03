@@ -1,17 +1,16 @@
 .filterContainer {
   margin-bottom: 20px;
-  margin: 0 128px;
 }
-.filterh1{
+.filterh1 {
   font-size: 14px;
-margin-bottom: 8px;
+  margin-bottom: 8px;
 }
 .sortSelect {
   padding: 14px 18px;
   font-weight: 500;
   border: 1px solid #ccc;
   border-radius: 14px;
-  background-color: #3470FF;
-  color: #FBFBFB;
+  background-color: #3470ff;
+  color: #fbfbfb;
   border: none;
 }
