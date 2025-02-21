@@ -197,13 +197,20 @@
   background-color: #407bff;
   color: #fff;
   border: none;
-  border-radius: 4px;
+  border-radius: 20px;
   cursor: pointer;
   transition: background-color 0.3s;
+  width: 50%;
+  margin: 0 auto;
 }
 
-.modalCloseButton:hover {
-  background-color: #3059cc;
+.modalCloseButton:hover,
+.modalCloseButton:focus,
+.modalCloseButton:active {
+  padding: 8px 16px;
+  margin: 0 auto;
+    background-color: #3059cc;
+
 }
 
 .pricegreen {

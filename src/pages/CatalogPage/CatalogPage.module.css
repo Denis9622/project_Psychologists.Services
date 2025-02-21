@@ -46,6 +46,7 @@
 .loadMoreButton:active {
   padding: 14px 48px;
   margin-bottom: 100px;
+  background-color: rgba(37, 94, 232, 1);
 }
 
 @media (max-width: 1024px) {

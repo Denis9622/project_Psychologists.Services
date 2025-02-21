@@ -44,14 +44,15 @@
   line-height: 48px;
   letter-spacing: -0.02em;
   margin-bottom: 20px;
-  text-align: center;
+  text-align: left;
+  
 }
 
 .textclass {
   max-width: 438px;
   color: rgba(25, 26, 21, 0.5);
   margin-bottom: 40px;
-  text-align: center;
+  text-align: left;
 }
 
 .input::placeholder {
@@ -78,9 +79,8 @@
 
 .passwordToggle {
   position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
+  right: 18px;
+  top: 16px;
   cursor: pointer;
 }
 

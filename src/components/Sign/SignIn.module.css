@@ -78,8 +78,9 @@
 .passwordToggle {
   position: absolute;
   right: 16px; 
-  top: 50%;
-  transform: translateY(-50%);
+  top: 16px;
+  /* top: 50%;
+  transform: translateY(-50%); */
   cursor: pointer;
   z-index: 1;
 }
@@ -96,7 +97,7 @@
 }
 
 .submitButton {
-  margin-top: 12px;
+  margin-top: 22px;
   padding: 16px 0px;
   background-color: #3470ff;
   color: white;

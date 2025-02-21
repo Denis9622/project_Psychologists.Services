@@ -11,9 +11,12 @@
 }
 
 .modalContent {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   background: white;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 20px;
   text-align: center;
   position: relative;
   width: 90%;

@@ -133,7 +133,7 @@ function Card({ psychologist }) {
       </div>
 
       {showModal && (
-        <Modal onClose={closeModal}>
+        <Modal onClose={closeModal} className={styles.modalContainer}>
           <h2>You are not logged in</h2>
           <p>To add to favorites, please log in to your account.</p>
           <button onClick={closeModal} className={styles.modalCloseButton}>
